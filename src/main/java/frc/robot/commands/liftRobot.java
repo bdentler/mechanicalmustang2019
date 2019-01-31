@@ -13,7 +13,6 @@ public class liftRobot extends CommandGroup {
   /**
    * Add your docs here.
    */
-  
   public liftRobot() {
     // Add Commands here:
     // e.g. addSequential(new Command1());
