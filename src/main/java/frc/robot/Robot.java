@@ -41,7 +41,9 @@ public class Robot extends TimedRobot {
     m_climbingArms = new climbingArms();
     m_oi = new OI();
     
+    // set the default autonomous option to lowerRobot
     m_chooser.setDefaultOption("Default Auto", new lowerRobot());
+    
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
   }
