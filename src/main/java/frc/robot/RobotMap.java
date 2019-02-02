@@ -27,11 +27,11 @@ public class RobotMap {
   // Climbing arms
   public static final int CLIMBING_ARMS_FRONT = 2;  //PWM Port
   public static final int CLIMBING_ARMS_REAR = 3;   //PWM Port
-  public static final double FRONT_ARM_LIFT_SPEED = 0.7;
-  public static final double FRONT_ARM_LOWER_SPEED = -0.7;
-  public static final double REAR_ARM_LIFT_SPEED = 0.7;
-  public static final double REAR_ARM_LOWER_SPEED = -0.7;
-  public static final double REAR_ARM_TIME = 3.0;
+  public static final double FRONT_ARM_LIFT_SPEED = 1;
+  public static final double FRONT_ARM_LOWER_SPEED = -1;
+  public static final double REAR_ARM_LIFT_SPEED = 1;
+  public static final double REAR_ARM_LOWER_SPEED = -1;
+  public static final double REAR_ARM_TIME = 7.0;
   public static final double FRONT_ARM_TIME = 5.0;
 
   // set to 1 to allow max rotation speed

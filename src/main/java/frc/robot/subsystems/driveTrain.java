@@ -33,7 +33,7 @@ public class driveTrain extends Subsystem {
 
   public void arcadeDrive(double moveSpeed, double rotateSpeed) {
     // ramp drive acceleration so robot motion is not so jerky
-    double currentSpeed = (leftDriveMotors.getSpeed() + rightDriveMotors.getSpeed()) / 2;
+    double currentSpeed = (-leftDriveMotors.getSpeed() + rightDriveMotors.getSpeed()) / 2;
     if (moveSpeed > currentSpeed) {
       moveSpeed = Math.min(currentSpeed + RobotMap.MAX_LINEAR_ACCELERATION, moveSpeed);
     } else {

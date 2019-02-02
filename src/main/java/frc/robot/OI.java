@@ -25,8 +25,8 @@ public class OI {
   Button F2 = new JoystickButton(functionController, 2);
 
   public OI() {
-    F1.whileHeld(new liftRobot());
-    F2.whileHeld(new lowerRobot());
+    F1.whenPressed(new liftRobot());
+    F2.whenPressed(new lowerRobot());
   }
 
   //// CREATING BUTTONS
