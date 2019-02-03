@@ -14,39 +14,25 @@ import frc.robot.RobotMap;
 /**
  * Add your docs here.
  */
-public class climbingArms extends Subsystem {
+public class liftArms extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   Spark frontClimbingArm = null;
-  Spark rearClimbingArm = null;
 
-  public climbingArms() {
+  public liftArms() {
     frontClimbingArm = new Spark(RobotMap.CLIMBING_ARMS_FRONT);
-    rearClimbingArm = new Spark(RobotMap.CLIMBING_ARMS_REAR);
   }
 
-  public void frontArmsRaiseRobot() {
+  public void raiseRobot() {
     frontClimbingArm.set(RobotMap.FRONT_ARM_LIFT_SPEED);
   }
 
-  public void frontArmsLowerRobot() {
+  public void lowerRobot() {
     frontClimbingArm.set(RobotMap.FRONT_ARM_LOWER_SPEED);
   }
 
-  public void frontArmsStop() {
+  public void armsStop() {
     frontClimbingArm.set(0);
-  }
-
-  public void rearArmsRaiseRobot() {
-    rearClimbingArm.set(RobotMap.REAR_ARM_LIFT_SPEED);
-  }
-
-  public void rearArmsLowerRobot() {
-    rearClimbingArm.set(RobotMap.REAR_ARM_LOWER_SPEED);
-  }
-
-  public void rearArmsStop() {
-    rearClimbingArm.set(0);
   }
   
   @Override

@@ -15,7 +15,7 @@ public class lowerRobotRear extends Command {
   public lowerRobotRear() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.m_climbingArms);
+    requires(Robot.m_dropArms);
     setTimeout(RobotMap.REAR_ARM_TIME);
   }
 
@@ -27,7 +27,7 @@ public class lowerRobotRear extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.m_climbingArms.rearArmsLowerRobot();
+    Robot.m_dropArms.lowerRobot();
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -39,7 +39,7 @@ public class lowerRobotRear extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.m_climbingArms.rearArmsStop();
+    Robot.m_dropArms.armsStop();
   }
 
   // Called when another command which requires one or more of the same

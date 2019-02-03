@@ -14,7 +14,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.lowerRobot;
 import frc.robot.subsystems.driveTrain;
-import frc.robot.subsystems.climbingArms;
+import frc.robot.subsystems.dropArms;
+import frc.robot.subsystems.liftArms;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -25,7 +26,8 @@ import frc.robot.subsystems.climbingArms;
  */
 public class Robot extends TimedRobot {
   public static driveTrain m_driveTrain = null;
-  public static climbingArms m_climbingArms = null;
+  public static dropArms m_dropArms = null;
+  public static liftArms m_liftArms = null;
   public static OI m_oi;
 
   Command m_autonomousCommand;
@@ -38,7 +40,8 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     m_driveTrain = new driveTrain();
-    m_climbingArms = new climbingArms();
+    m_dropArms = new dropArms();
+    m_liftArms = new liftArms();
     m_oi = new OI();
     
     // set the default autonomous option to lowerRobot
