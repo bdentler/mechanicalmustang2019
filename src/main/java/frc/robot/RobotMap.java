@@ -38,6 +38,7 @@ public class RobotMap {
   // Climbing arms
   public static final int CLIMBING_ARMS_FRONT = 2;  //PWM Port
   public static final int CLIMBING_ARMS_REAR = 3;   //PWM Port
+  public static final int LIFT_DRIVE_WHEEL = 4;     //PWM Port
   
   public static final double FRONT_ARM_LIFT_SPEED = 1;    //Lift arm
   public static final double FRONT_ARM_LOWER_SPEED = -1;  //Lift arm
@@ -46,6 +47,10 @@ public class RobotMap {
   public static final double REAR_ARM_LIFT_SPEED = 1;     //Drop arm
   public static final double REAR_ARM_LOWER_SPEED = -1;   //Drop arm
   public static final double REAR_ARM_TIME = 7.0;         //Drop arm
+
+  public static final double LIFT_DRIVE_WHEEL_SPEED = 0.6;  //Drive wheels on lift arm
+  public static final double LIFT_DRIVE_WHEEL_ON_TIME = 15; //Drive wheels on lift arm
+  public static final double LIFT_DRIVE_WHEEL_OFF_TIME = 5; //Drive wheels on lift arm
 
   // set to 1 to allow max rotation speed
   public static final double SCALE_BACK_ROTATION_ACCELERATION = 0.5;
@@ -58,6 +63,5 @@ public class RobotMap {
 
   // Function control joystick (xbox controller)
   public static final int OI_FUNCTION_JOYSTICK = 1;
-
 
 }

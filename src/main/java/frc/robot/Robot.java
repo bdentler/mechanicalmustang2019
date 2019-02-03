@@ -16,6 +16,7 @@ import frc.robot.commands.lowerRobot;
 import frc.robot.subsystems.driveTrain;
 import frc.robot.subsystems.dropArms;
 import frc.robot.subsystems.liftArms;
+import frc.robot.subsystems.liftDriveWheel;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -28,6 +29,7 @@ public class Robot extends TimedRobot {
   public static driveTrain m_driveTrain = null;
   public static dropArms m_dropArms = null;
   public static liftArms m_liftArms = null;
+  public static liftDriveWheel m_liftDriveWheel = null;
   public static OI m_oi;
 
   Command m_autonomousCommand;
@@ -42,6 +44,7 @@ public class Robot extends TimedRobot {
     m_driveTrain = new driveTrain();
     m_dropArms = new dropArms();
     m_liftArms = new liftArms();
+    m_liftDriveWheel = new liftDriveWheel();
     m_oi = new OI();
     
     // set the default autonomous option to lowerRobot

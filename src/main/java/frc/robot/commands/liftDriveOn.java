@@ -11,11 +11,12 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 
-public class driveArcade extends Command {
-  public driveArcade() {
+public class liftDriveOn extends Command {
+  public liftDriveOn() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.m_driveTrain);
+    requires(Robot.m_liftDriveWheel);
+    setTimeout(RobotMap.LIFT_DRIVE_WHEEL_ON_TIME);
   }
 
   // Called just before this Command runs the first time
@@ -26,30 +27,19 @@ public class driveArcade extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    double moveSpeed = -Robot.m_oi.driveController.getRawAxis(RobotMap.DRIVE_JOYSTICK_MOVE_AXIS);
-    double rotateSpeed = Robot.m_oi.driveController.getRawAxis(RobotMap.DRIVE_JOYSTICK_ROTATE_AXIS);
-     
-    // ramp drive acceleration so robot motion is not so jerky
-     double currentSpeed = (Robot.m_driveTrain.leftDriveMotors.getSpeed() + Robot.m_driveTrain.rightDriveMotors.getSpeed()) / 2;
-     if (moveSpeed > currentSpeed) {
-       moveSpeed = Math.min(currentSpeed + RobotMap.MAX_LINEAR_ACCELERATION, moveSpeed);
-     } else {
-       moveSpeed = Math.max(currentSpeed - RobotMap.MAX_LINEAR_ACCELERATION, moveSpeed);  
-     }
-     
-    Robot.m_driveTrain.arcadeDrive(moveSpeed, RobotMap.SCALE_BACK_ROTATION_ACCELERATION * rotateSpeed);
+    Robot.m_liftDriveWheel.driveOn();
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return isTimedOut();
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.m_driveTrain.arcadeDrive(0, 0);
+    Robot.m_liftDriveWheel.driveStop();
   }
 
   // Called when another command which requires one or more of the same

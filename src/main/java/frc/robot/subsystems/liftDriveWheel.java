@@ -8,38 +8,36 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import frc.robot.RobotMap;
-import frc.robot.commands.driveArcade;
 import edu.wpi.first.wpilibj.Spark;
 
 /**
  * Add your docs here.
  */
-public class driveTrain extends Subsystem {
+public class liftDriveWheel extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
+  Spark liftDriveWheel = null;
 
-  public Spark leftDriveMotors = null;
-  public Spark rightDriveMotors = null;
-  DifferentialDrive differentialDrive = null;
-
-  public driveTrain(){
-    // initialize drive motor controllers
-    leftDriveMotors = new Spark(RobotMap.DRIVETRAIN_LEFT_DRIVE_MOTORS);
-    rightDriveMotors = new Spark(RobotMap.DRIVETRAIN_RIGHT_DRIVE_MOTORS);
-    differentialDrive = new DifferentialDrive(leftDriveMotors, rightDriveMotors);
+  public liftDriveWheel() {
+    liftDriveWheel = new Spark(RobotMap.LIFT_DRIVE_WHEEL);
   }
 
-  public void arcadeDrive(double moveSpeed, double rotateSpeed) {
-   
-    differentialDrive.arcadeDrive(moveSpeed, rotateSpeed);
+  public void driveOn() {
+    liftDriveWheel.set(RobotMap.LIFT_DRIVE_WHEEL_SPEED);
+  }
+
+  public void driveOff() {
+    liftDriveWheel.set(-RobotMap.LIFT_DRIVE_WHEEL_SPEED);
+  }
+
+  public void driveStop() {
+    liftDriveWheel.set(0);
   }
 
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-    setDefaultCommand(new driveArcade());
   }
 }
