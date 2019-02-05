@@ -29,15 +29,7 @@ public class driveArcade extends Command {
     double moveSpeed = -Robot.m_oi.driveController.getRawAxis(RobotMap.DRIVE_JOYSTICK_MOVE_AXIS);
     double rotateSpeed = Robot.m_oi.driveController.getRawAxis(RobotMap.DRIVE_JOYSTICK_ROTATE_AXIS);
      
-    // ramp drive acceleration so robot motion is not so jerky
-     double currentSpeed = (Robot.m_driveTrain.leftDriveMotors.getSpeed() + Robot.m_driveTrain.rightDriveMotors.getSpeed()) / 2;
-     if (moveSpeed > currentSpeed) {
-       moveSpeed = Math.min(currentSpeed + RobotMap.MAX_LINEAR_ACCELERATION, moveSpeed);
-     } else {
-       moveSpeed = Math.max(currentSpeed - RobotMap.MAX_LINEAR_ACCELERATION, moveSpeed);  
-     }
-     
-    Robot.m_driveTrain.arcadeDrive(moveSpeed, RobotMap.SCALE_BACK_ROTATION_ACCELERATION * rotateSpeed);
+    Robot.m_driveTrain.arcadeDrive(moveSpeed, rotateSpeed);
   }
 
   // Make this return true when this Command no longer needs to run execute()

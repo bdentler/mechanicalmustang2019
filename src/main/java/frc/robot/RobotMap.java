@@ -56,7 +56,7 @@ public class RobotMap {
   public static final double LIFT_DRIVE_WHEEL_OFF_TIME = 5; //Drive wheels on lift arm
 
   // set to 1 to allow max rotation speed
-  public static final double SCALE_BACK_ROTATION_ACCELERATION = 0.5;
+  public static final double SCALE_BACK_ROTATION_ACCELERATION = 0.75;
   public static final double MAX_LINEAR_ACCELERATION = 0.1;
 
   // Vacuum System
@@ -66,8 +66,8 @@ public class RobotMap {
 
   // Drive control joystick
   public static final int OI_DRIVE_JOYSTICK = 0;
-  public static final int DRIVE_JOYSTICK_MOVE_AXIS = 0;
-  public static final int DRIVE_JOYSTICK_ROTATE_AXIS = 1;
+  public static final int DRIVE_JOYSTICK_MOVE_AXIS = 1;
+  public static final int DRIVE_JOYSTICK_ROTATE_AXIS = 0;
 
   // Function control joystick (xbox controller)
   public static final int OI_FUNCTION_JOYSTICK = 1;
