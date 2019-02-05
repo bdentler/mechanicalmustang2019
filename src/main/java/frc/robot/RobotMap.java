@@ -36,6 +36,9 @@ public class RobotMap {
   public static final int DRIVETRAIN_RIGHT_DRIVE_MOTORS = 1;  //PWM Port
 
   // Climbing arms
+  public static final int LIFT_ROBOT_BUTTON = 1;  //Button number on function controller to lift robot onto platform
+  public static final int LOWER_ROBOT_BUTTON = 2; //Button number on function controller to lower robot from platform
+
   public static final int CLIMBING_ARMS_FRONT = 2;  //PWM Port
   public static final int CLIMBING_ARMS_REAR = 3;   //PWM Port
   public static final int LIFT_DRIVE_WHEEL = 4;     //PWM Port
@@ -55,6 +58,11 @@ public class RobotMap {
   // set to 1 to allow max rotation speed
   public static final double SCALE_BACK_ROTATION_ACCELERATION = 0.5;
   public static final double MAX_LINEAR_ACCELERATION = 0.1;
+
+  // Vacuum System
+  public static final int VACUUM_MOTOR = 5;                         //PWM Port
+  public static final double VACUUM_MOTOR_SPEED_ADJUST = 0.004;
+  public static final int VACUUM_BEGIN_BUTTON = 3;                  //Button number on function controller to start vacuum
 
   // Drive control joystick
   public static final int OI_DRIVE_JOYSTICK = 0;
