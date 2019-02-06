@@ -20,7 +20,7 @@ public class dropArms extends Subsystem {
   Spark rearClimbingArm = null;
 
   public dropArms() {
-    rearClimbingArm = new Spark(RobotMap.CLIMBING_ARMS_REAR); 
+    rearClimbingArm = new Spark(RobotMap.CLIMBING_ARMS_REAR_PWM);
   }
 
   public void raiseRobot() {

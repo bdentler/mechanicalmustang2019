@@ -40,16 +40,20 @@ public class RobotMap {
   public static final int LOWER_ROBOT_BUTTON = 2; //Button number on function controller to lower robot from platform
 
   public static final int CLIMBING_ARMS_FRONT = 2;  //PWM Port
-  public static final int CLIMBING_ARMS_REAR = 3;   //PWM Port
+  public static final int CLIMBING_ARMS_REAR_PWM = 3;   //PWM Port
   public static final int LIFT_DRIVE_WHEEL = 4;     //PWM Port
+
+  public static final int CLIMBING_ARMS_FRONT_DIO = 0;
+  public static final int CLIMBING_ARMS_REAR_DIO = 1;
   
   public static final double FRONT_ARM_LIFT_SPEED = 1;    //Lift arm
   public static final double FRONT_ARM_LOWER_SPEED = -1;  //Lift arm
   public static final double FRONT_ARM_TIME = 5.0;        //Lift arm
 
-  public static final double REAR_ARM_LIFT_SPEED = 1;     //Drop arm
-  public static final double REAR_ARM_LOWER_SPEED = -1;   //Drop arm
-  public static final double REAR_ARM_TIME = 7.0;         //Drop arm
+  public static final double REAR_ARM_LIFT_SPEED = 1;       //Drop arm
+  public static final double REAR_ARM_LOWER_SPEED = -1;     //Drop arm
+  public static final double REAR_ARM_TIME = 7.0;           //Drop arm (after counts are working this is obsolete)
+  public static final int CLIMBING_ARMS_REAR_COUNT = 1000;  //Number of motor counts to reach correct position
 
   public static final double LIFT_DRIVE_WHEEL_SPEED = 0.6;  //Drive wheels on lift arm
   public static final double LIFT_DRIVE_WHEEL_ON_TIME = 15; //Drive wheels on lift arm
