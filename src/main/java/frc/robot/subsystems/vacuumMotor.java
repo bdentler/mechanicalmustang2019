@@ -21,7 +21,7 @@ public class vacuumMotor extends Subsystem {
   Spark vacMotor = null;
 
   public vacuumMotor() {
-    vacMotor =  new Spark(RobotMap.VACUUM_MOTOR);
+    vacMotor =  new Spark(RobotMap.VACUUM_MOTOR_PWM);
   }
 
   public void startVacuum() {

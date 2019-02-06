@@ -26,8 +26,8 @@ public class driveTrain extends Subsystem {
 
   public driveTrain(){
     // initialize drive motor controllers
-    leftDriveMotors = new Spark(RobotMap.DRIVETRAIN_LEFT_DRIVE_MOTORS);
-    rightDriveMotors = new Spark(RobotMap.DRIVETRAIN_RIGHT_DRIVE_MOTORS);
+    leftDriveMotors = new Spark(RobotMap.DRIVETRAIN_LEFT_DRIVE_MOTORS_PWM);
+    rightDriveMotors = new Spark(RobotMap.DRIVETRAIN_RIGHT_DRIVE_MOTORS_PWM);
     differentialDrive = new DifferentialDrive(leftDriveMotors, rightDriveMotors);
   }
 

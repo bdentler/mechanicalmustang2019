@@ -15,12 +15,10 @@ import frc.robot.RobotMap;
  * Add your docs here.
  */
 public class liftArms extends Subsystem {
-  // Put methods for controlling this subsystem
-  // here. Call these from Commands.
   Spark frontClimbingArm = null;
 
   public liftArms() {
-    frontClimbingArm = new Spark(RobotMap.CLIMBING_ARMS_FRONT);
+    frontClimbingArm = new Spark(RobotMap.CLIMBING_ARMS_FRONT_PWM);
   }
 
   public void raiseRobot() {

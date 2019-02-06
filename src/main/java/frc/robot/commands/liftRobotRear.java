@@ -21,15 +21,15 @@ public class liftRobotRear extends Command {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     rearClimbingArmCount = new Counter();
-    rearClimbingArmCount.setUpSource(RobotMap.CLIMBING_ARMS_REAR_DIO);
-    rearClimbingArmCount.setUpDownCounterMode();
     requires(Robot.m_dropArms);
-    setTimeout(RobotMap.REAR_ARM_TIME);
+    //setTimeout(RobotMap.REAR_ARM_TIME);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    rearClimbingArmCount.setUpSource(RobotMap.CLIMBING_ARMS_REAR_DIO);
+    rearClimbingArmCount.setUpDownCounterMode();
     rearClimbingArmCount.reset();
     isCountReached = false;
   }

@@ -15,12 +15,10 @@ import edu.wpi.first.wpilibj.Spark;
  * Add your docs here.
  */
 public class liftDriveWheel extends Subsystem {
-  // Put methods for controlling this subsystem
-  // here. Call these from Commands.
   Spark liftDriveWheel = null;
 
   public liftDriveWheel() {
-    liftDriveWheel = new Spark(RobotMap.LIFT_DRIVE_WHEEL);
+    liftDriveWheel = new Spark(RobotMap.LIFT_DRIVE_WHEEL_PWM);
   }
 
   public void driveOn() {
