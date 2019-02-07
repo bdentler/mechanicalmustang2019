@@ -16,10 +16,12 @@ public class RobotMap {
   public static final int CLIMBING_ARMS_REAR_PWM = 3;             //Drop arms
   public static final int LIFT_DRIVE_WHEEL_PWM = 4;
   public static final int VACUUM_MOTOR_PWM = 5;
+  public static final int BOOM_MOTOR_PWM = 6;
 
   // DIO Ports
   public static final int CLIMBING_ARMS_FRONT_DIO = 0;  //Lift arms
   public static final int CLIMBING_ARMS_REAR_DIO = 1;   //Drop arms
+  public static final int BOOM_ARM_DIO = 2;             //Boom arm
 
   // Joystick Buttons
   public static final int LIFT_ROBOT_BUTTON = 1;    //lift robot onto platform
@@ -32,6 +34,8 @@ public class RobotMap {
   public static final double REAR_ARM_LIFT_SPEED = 1;       //Drop arm
   public static final double REAR_ARM_LOWER_SPEED = -1;     //Drop arm
   public static final double LIFT_DRIVE_WHEEL_SPEED = 0.6;  //Drive wheels on lift arm
+  public static final double BOOM_MOTOR_RAISE_SPEED = -0.7; //Rotate boom upward when boom is in operating position
+  public static final double BOOM_MOTOR_LOWER_SPEED = 0.7;  //Rotate boom downward when boom is in operating position
 
   // Motor Ramping adjustments (smaller numbers take more time to ramp up)
   public static final double SCALE_BACK_ROTATION_ACCELERATION = 0.8; //Drive train
@@ -41,6 +45,7 @@ public class RobotMap {
   // Motor Counters
   public static final int FRONT_LIFT_COUNTER_COUNT = 1000;  //Number of motor counts to reach correct position
   public static final int CLIMBING_ARMS_REAR_COUNT = 1000;  //Number of motor counts to reach correct position
+  public static final int BOOM_ARM_DEPLOY_COUNT = 5000;     //Number of motor counts to deploy boom arm from stowed position
 
   // Time Outs
   public static final double REAR_ARM_TIME = 7.0;           //Drop arm (after counts are working this is obsolete)
