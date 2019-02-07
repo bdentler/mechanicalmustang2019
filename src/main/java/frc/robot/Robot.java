@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.lowerRobot;
+import frc.robot.subsystems.boomMotor;
 import frc.robot.subsystems.driveTrain;
 import frc.robot.subsystems.dropArms;
 import frc.robot.subsystems.liftArms;
@@ -32,7 +33,9 @@ public class Robot extends TimedRobot {
   public static liftArms m_liftArms = null;
   public static liftDriveWheel m_liftDriveWheel = null;
   public static vacuumMotor m_vacuumMotor = null;
+  public static boomMotor m_boomMotor = null;
   public static OI m_oi;
+  public static int currentBoomPosition;
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -48,6 +51,7 @@ public class Robot extends TimedRobot {
     m_liftArms = new liftArms();
     m_liftDriveWheel = new liftDriveWheel();
     m_vacuumMotor = new vacuumMotor();
+    m_boomMotor = new boomMotor();
     m_oi = new OI();
     
     // set the default autonomous option to lowerRobot
