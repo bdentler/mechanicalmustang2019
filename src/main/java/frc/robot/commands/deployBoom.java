@@ -22,13 +22,13 @@ public class deployBoom extends Command {
     // eg. requires(chassis);
     requires(Robot.m_boomMotor);
     boomCounter = new Counter();
+    boomCounter.setUpSource(RobotMap.BOOM_ARM_DIO);
+    boomCounter.setUpDownCounterMode();
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    boomCounter.setUpSource(RobotMap.BOOM_ARM_DIO);
-    boomCounter.setUpDownCounterMode();
     boomCounter.reset();
     isCountReached = false;
   }

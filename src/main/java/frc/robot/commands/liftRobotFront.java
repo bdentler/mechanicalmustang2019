@@ -22,14 +22,14 @@ public class liftRobotFront extends Command {
     // eg. requires(chassis);
     requires(Robot.m_liftArms);
     frontLiftCounter = new Counter();
+    frontLiftCounter.setUpSource(RobotMap.CLIMBING_ARMS_FRONT_DIO);
+    frontLiftCounter.setUpDownCounterMode();
     //setTimeout(RobotMap.FRONT_ARM_TIME);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    frontLiftCounter.setUpSource(RobotMap.CLIMBING_ARMS_FRONT_DIO);
-    frontLiftCounter.setUpDownCounterMode();
     frontLiftCounter.reset();
     isCountReached = false;
   }
