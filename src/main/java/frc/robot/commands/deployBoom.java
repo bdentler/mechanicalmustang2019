@@ -8,38 +8,31 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.Counter;
 import frc.robot.RobotMap;
 import frc.robot.Robot;
 
 public class deployBoom extends Command {
 
-  Counter boomCounter = null;
   boolean isCountReached = false;
 
   public deployBoom() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.m_boomMotor);
-    boomCounter = new Counter();
-    boomCounter.setUpSource(RobotMap.BOOM_ARM_DIO);
-    boomCounter.setUpDownCounterMode();
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    boomCounter.reset();
+    Robot.m_boomMotor.resetBoomCounter();
     isCountReached = false;
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.m_boomMotor.dropBoom();
-    if (boomCounter.get() >= RobotMap.BOOM_ARM_DEPLOY_COUNT) {
-      Robot.m_boomMotor.stopBoomMotor();
-      Robot.currentBoomPosition = 0;
+    if (Robot.m_boomMotor.dropBoom() >= RobotMap.BOOM_ARM_DEPLOY_COUNT) {
+      isCountReached = true;
     }
   }
 

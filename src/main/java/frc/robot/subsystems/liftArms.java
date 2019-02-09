@@ -8,6 +8,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.Counter;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 
@@ -16,17 +17,27 @@ import frc.robot.RobotMap;
  */
 public class liftArms extends Subsystem {
   Spark frontClimbingArm = null;
+  Counter frontLiftCounter = null;
 
   public liftArms() {
     frontClimbingArm = new Spark(RobotMap.CLIMBING_ARMS_FRONT_PWM);
+    frontLiftCounter = new Counter();
+    frontLiftCounter.setUpSource(RobotMap.CLIMBING_ARMS_FRONT_DIO);
+    frontLiftCounter.setUpDownCounterMode();
   }
 
-  public void raiseRobot() {
+  public void resetFrontLiftCounter() {
+    frontLiftCounter.reset();
+  }
+  
+  public int raiseRobot() {
     frontClimbingArm.set(RobotMap.FRONT_ARM_LIFT_SPEED);
+    return frontLiftCounter.get();
   }
 
-  public void lowerRobot() {
+  public int lowerRobot() {
     frontClimbingArm.set(RobotMap.FRONT_ARM_LOWER_SPEED);
+    return frontLiftCounter.get();
   }
 
   public void armsStop() {

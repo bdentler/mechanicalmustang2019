@@ -9,6 +9,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.Counter;
 import frc.robot.RobotMap;
 
 /**
@@ -19,17 +20,31 @@ public class boomMotor extends Subsystem {
   // here. Call these from Commands.
 
   Spark boomMotor = null;
+  Counter boomCounter = null;
 
   public boomMotor() {
     boomMotor = new Spark(RobotMap.BOOM_MOTOR_PWM);
+    boomCounter = new Counter();
+    boomCounter.setUpSource(RobotMap.BOOM_ARM_DIO);
+    boomCounter.setUpDownCounterMode();
   }
 
-  public void liftBoom() {
+  public void resetBoomCounter() {
+    boomCounter.reset();
+  }
+
+  public int liftBoom() {
+    boomCounter.setReverseDirection(true);
     boomMotor.setSpeed(RobotMap.BOOM_MOTOR_RAISE_SPEED);
+    System.out.printf("lifting boom - count", boomCounter.get());
+    return boomCounter.get();
   }
 
-  public void dropBoom() {
+  public int dropBoom() {
+    boomCounter.setReverseDirection(false);
     boomMotor.setSpeed(RobotMap.BOOM_MOTOR_LOWER_SPEED);
+    System.out.printf("lowering boom - count", boomCounter.get());
+    return boomCounter.get();
   }
 
   public void stopBoomMotor() {

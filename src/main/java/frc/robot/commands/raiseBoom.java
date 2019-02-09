@@ -9,44 +9,37 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.RobotMap;
 
-public class liftRobotRear extends Command {
+public class raiseBoom extends Command {
 
-  boolean isCountReached = false;
-
-  public liftRobotRear() {
+  public raiseBoom() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.m_dropArms);
-    //setTimeout(RobotMap.REAR_ARM_TIME);
+    requires(Robot.m_boomMotor);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.m_dropArms.resetRearClimbingArmCount();
-    isCountReached = false;
+    Robot.m_boomMotor.resetBoomCounter();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if (Robot.m_dropArms.raiseRobot() >= RobotMap.CLIMBING_ARMS_REAR_COUNT) {
-      isCountReached = true;
-    } 
+    Robot.m_boomMotor.liftBoom();
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return isCountReached;
+    return false;
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.m_dropArms.armsStop();
+    Robot.m_boomMotor.stopBoomMotor();
   }
 
   // Called when another command which requires one or more of the same
