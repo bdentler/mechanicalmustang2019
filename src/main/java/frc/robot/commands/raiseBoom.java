@@ -27,7 +27,8 @@ public class raiseBoom extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.m_boomMotor.liftBoom();
+    System.out.println(Robot.m_boomMotor.liftBoom());
+    //System.out.println(Robot.m_boomMotor.getBoomCounter());
   }
 
   // Make this return true when this Command no longer needs to run execute()

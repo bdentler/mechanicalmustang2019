@@ -33,17 +33,17 @@ public class boomMotor extends Subsystem {
     boomCounter.reset();
   }
 
-  public int liftBoom() {
-    boomCounter.setReverseDirection(true);
-    boomMotor.setSpeed(RobotMap.BOOM_MOTOR_RAISE_SPEED);
-    System.out.printf("lifting boom - count", boomCounter.get());
+  public int getBoomCounter() {
     return boomCounter.get();
   }
 
+  public int liftBoom() {
+    boomMotor.setSpeed(RobotMap.BOOM_MOTOR_RAISE_SPEED);
+    return -boomCounter.get();
+  }
+
   public int dropBoom() {
-    boomCounter.setReverseDirection(false);
     boomMotor.setSpeed(RobotMap.BOOM_MOTOR_LOWER_SPEED);
-    System.out.printf("lowering boom - count", boomCounter.get());
     return boomCounter.get();
   }
 

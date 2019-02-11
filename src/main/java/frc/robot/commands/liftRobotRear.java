@@ -19,7 +19,6 @@ public class liftRobotRear extends Command {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.m_dropArms);
-    //setTimeout(RobotMap.REAR_ARM_TIME);
   }
 
   // Called just before this Command runs the first time
@@ -34,7 +33,8 @@ public class liftRobotRear extends Command {
   protected void execute() {
     if (Robot.m_dropArms.raiseRobot() >= RobotMap.CLIMBING_ARMS_REAR_COUNT) {
       isCountReached = true;
-    } 
+    }
+    System.out.println(Robot.m_dropArms.raiseRobot());
   }
 
   // Make this return true when this Command no longer needs to run execute()

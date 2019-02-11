@@ -32,10 +32,10 @@ public class lowerRobotRear extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    
     if (Robot.m_dropArms.lowerRobot() >= RobotMap.CLIMBING_ARMS_REAR_COUNT) {
       isCountReached = true;
     } 
+    System.out.println(Robot.m_dropArms.lowerRobot());
   }
 
   // Make this return true when this Command no longer needs to run execute()
