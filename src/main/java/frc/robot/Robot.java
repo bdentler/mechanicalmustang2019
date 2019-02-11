@@ -19,6 +19,7 @@ import frc.robot.subsystems.dropArms;
 import frc.robot.subsystems.liftArms;
 import frc.robot.subsystems.liftDriveWheel;
 import frc.robot.subsystems.vacuumMotor;
+import frc.robot.subsystems.vacuumDumpValve;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -34,6 +35,7 @@ public class Robot extends TimedRobot {
   public static liftDriveWheel m_liftDriveWheel = null;
   public static vacuumMotor m_vacuumMotor = null;
   public static boomMotor m_boomMotor = null;
+  public static vacuumDumpValve m_vacuumDumpValve = null;
   public static OI m_oi;
   public static int currentBoomPosition;
 
@@ -51,6 +53,7 @@ public class Robot extends TimedRobot {
     m_liftArms = new liftArms();
     m_liftDriveWheel = new liftDriveWheel();
     m_vacuumMotor = new vacuumMotor();
+    m_vacuumDumpValve = new vacuumDumpValve();
     m_boomMotor = new boomMotor();
     m_oi = new OI();
     

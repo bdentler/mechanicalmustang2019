@@ -23,11 +23,15 @@ public class RobotMap {
   public static final int CLIMBING_ARMS_REAR_DIO = 1;   //Drop arms
   public static final int BOOM_ARM_DIO = 2;             //Boom arm
 
+  // Relay Ports
+  public static final int VACUUM_DUMP_RELAY_PORT = 0;   //Connect relay across Forward and Ground (Center)--reverse pin not used
+
   // Joystick Buttons
   public static final int LIFT_ROBOT_BUTTON = 1;    //lift robot onto platform
   public static final int LOWER_ROBOT_BUTTON = 2;   //lower robot from platform
   public static final int BOOM_LOWER_BUTTON = 3;    //lower the boom
   public static final int BOOM_RAISE_BUTTON = 4;    //raise the boom
+  public static final int VACUUM_DUMP_BUTTON = 5;   //release suction for three seconds
 
   // Motor Speeds
   public static final double FRONT_ARM_LIFT_SPEED = 1;      //Lift arm

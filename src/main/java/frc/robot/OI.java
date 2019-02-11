@@ -25,12 +25,14 @@ public class OI {
   Button F2 = new JoystickButton(functionController, RobotMap.LOWER_ROBOT_BUTTON);
   Button F3 = new JoystickButton(functionController, RobotMap.BOOM_LOWER_BUTTON);
   Button F4 = new JoystickButton(functionController, RobotMap.BOOM_RAISE_BUTTON);
+  Button F5 = new JoystickButton(functionController, RobotMap.VACUUM_DUMP_BUTTON);
 
   public OI() {
     F1.whenPressed(new liftRobot());
     F2.whenPressed(new lowerRobot());
     F3.whileHeld(new lowerBoom());
     F4.whileHeld(new raiseBoom());
+    F5.whenPressed(new dropSuction());
   }
 
   //// CREATING BUTTONS
