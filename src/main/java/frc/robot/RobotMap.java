@@ -17,6 +17,7 @@ public class RobotMap {
   public static final int LIFT_DRIVE_WHEEL_PWM = 4;
   public static final int VACUUM_MOTOR_PWM = 5;
   public static final int BOOM_MOTOR_PWM = 6;
+  public static final int WRIST_MOTOR_PWM = 7;
 
   // DIO Ports
   public static final int CLIMBING_ARMS_FRONT_DIO = 0;  //Lift arms
@@ -36,6 +37,8 @@ public class RobotMap {
   public static final double LIFT_DRIVE_WHEEL_SPEED = 0.6;  //Drive wheels on lift arm
   public static final double BOOM_MOTOR_RAISE_SPEED = -1; //Rotate boom upward when boom is in operating position
   public static final double BOOM_MOTOR_LOWER_SPEED = 1;  //Rotate boom downward when boom is in operating position
+  public static final double WRIST_MOTOR_UP_SPEED = .7;
+  public static final double WRIST_MOTOR_DOWN_SPEED = -.7;
 
   // Motor Ramping adjustments (smaller numbers take more time to ramp up)
   public static final double SCALE_BACK_ROTATION_ACCELERATION = 0.8; //Drive train
@@ -60,5 +63,8 @@ public class RobotMap {
 
   // Function control joystick (xbox controller)
   public static final int OI_FUNCTION_JOYSTICK = 1;
+
+
+
 
 }
