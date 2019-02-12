@@ -20,6 +20,7 @@ import frc.robot.subsystems.liftArms;
 import frc.robot.subsystems.liftDriveWheel;
 import frc.robot.subsystems.vacuumMotor;
 import frc.robot.subsystems.vacuumDumpValve;
+import frc.robot.subsystems.WristMotor;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -38,6 +39,7 @@ public class Robot extends TimedRobot {
   public static vacuumDumpValve m_vacuumDumpValve = null;
   public static OI m_oi;
   public static int currentBoomPosition;
+  public static WristMotor m_WristMotor = null;
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -56,6 +58,7 @@ public class Robot extends TimedRobot {
     m_vacuumDumpValve = new vacuumDumpValve();
     m_boomMotor = new boomMotor();
     m_oi = new OI();
+    m_WristMotor = new WristMotor();
     
     // set the default autonomous option to lowerRobot
     m_chooser.setDefaultOption("Default Auto", new lowerRobot());
