@@ -59,6 +59,10 @@ public class Robot extends TimedRobot {
     m_boomMotor = new boomMotor();
     m_oi = new OI();
     m_WristMotor = new WristMotor();
+
+    //engage relay so when robot is activated the vacuum system will create suction 
+    //once the motor starts--this command does not start the motor
+    m_vacuumDumpValve.makeSuction();
     
     // set the default autonomous option to lowerRobot
     m_chooser.setDefaultOption("Default Auto", new lowerRobot());
