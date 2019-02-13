@@ -9,13 +9,14 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 
 public class dropSuction extends Command {
   public dropSuction() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.m_vacuumDumpValve);
-    setTimeout(3);
+    setTimeout(RobotMap.VACUUM_DUMP_TIMEOUT);
   }
 
   // Called just before this Command runs the first time

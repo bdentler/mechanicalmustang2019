@@ -61,6 +61,7 @@ public class RobotMap {
   public static final double FRONT_ARM_TIME = 5.0;          //Lift arm (after counts are working this is obsolete)
   public static final double LIFT_DRIVE_WHEEL_ON_TIME = 15; //Drive wheels on lift arm
   public static final double LIFT_DRIVE_WHEEL_OFF_TIME = 5; //Drive wheels on lift arm
+  public static final double VACUUM_DUMP_TIMEOUT = 3;       //Length of time in seconds that vacuum is dumped
 
   // Drive control joystick
   public static final int OI_DRIVE_JOYSTICK = 0;
@@ -69,8 +70,5 @@ public class RobotMap {
 
   // Function control joystick (xbox controller)
   public static final int OI_FUNCTION_JOYSTICK = 1;
-
-
-
 
 }
