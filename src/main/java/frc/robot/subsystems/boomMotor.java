@@ -33,17 +33,23 @@ public class boomMotor extends Subsystem {
     boomCounter.reset();
   }
 
-  public int getBoomCounter() {
+  public int getBoomCount() {
     return boomCounter.get();
   }
 
   public int liftBoom() {
-    boomMotor.setSpeed(RobotMap.BOOM_MOTOR_RAISE_SPEED);
-    return -boomCounter.get();
+    double currentSpeed = boomMotor.getSpeed();
+    if (currentSpeed > -0.8) {
+      boomMotor.setSpeed(currentSpeed - RobotMap.BOOM_MOTOR_SPEED_ADJUST);
+    }
+    return boomCounter.get();
   }
 
   public int dropBoom() {
-    boomMotor.setSpeed(RobotMap.BOOM_MOTOR_LOWER_SPEED);
+    double currentSpeed = boomMotor.getSpeed();
+    if (currentSpeed < 0.8) {
+      boomMotor.setSpeed(currentSpeed + RobotMap.BOOM_MOTOR_SPEED_ADJUST);
+    }
     return boomCounter.get();
   }
 

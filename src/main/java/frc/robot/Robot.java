@@ -20,7 +20,7 @@ import frc.robot.subsystems.liftArms;
 import frc.robot.subsystems.liftDriveWheel;
 import frc.robot.subsystems.vacuumMotor;
 import frc.robot.subsystems.vacuumDumpValve;
-import frc.robot.subsystems.WristMotor;
+import frc.robot.subsystems.actuateWristMotor;;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -34,12 +34,14 @@ public class Robot extends TimedRobot {
   public static dropArms m_dropArms = null;
   public static liftArms m_liftArms = null;
   public static liftDriveWheel m_liftDriveWheel = null;
+  public static actuateWristMotor m_actuateWristMotor = null;
   public static vacuumMotor m_vacuumMotor = null;
   public static boomMotor m_boomMotor = null;
   public static vacuumDumpValve m_vacuumDumpValve = null;
-  public static OI m_oi;
   public static int currentBoomPosition;
-  public static WristMotor m_WristMotor = null;
+  public static OI m_oi;
+
+
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -57,8 +59,9 @@ public class Robot extends TimedRobot {
     m_vacuumMotor = new vacuumMotor();
     m_vacuumDumpValve = new vacuumDumpValve();
     m_boomMotor = new boomMotor();
+    m_actuateWristMotor = new actuateWristMotor();
     m_oi = new OI();
-    m_WristMotor = new WristMotor();
+
 
     //engage relay so when robot is activated the vacuum system will create suction 
     //once the motor starts--this command does not start the motor

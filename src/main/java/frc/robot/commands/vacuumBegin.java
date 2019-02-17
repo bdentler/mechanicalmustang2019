@@ -15,7 +15,7 @@ public class vacuumBegin extends Command {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.m_vacuumMotor);
-    setTimeout(10);
+    setTimeout(30);
   }
 
   // Called just before this Command runs the first time

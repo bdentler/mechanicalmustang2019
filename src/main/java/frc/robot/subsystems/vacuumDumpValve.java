@@ -21,15 +21,15 @@ public class vacuumDumpValve extends Subsystem {
   Relay vacuumDump = new Relay(RobotMap.VACUUM_DUMP_RELAY_PORT, Direction.kForward);
 
   public vacuumDumpValve() {
-    vacuumDump.set(Relay.Value.kOn);
+    vacuumDump.set(Relay.Value.kOff);
   }
 
   public void makeSuction() {
-    vacuumDump.set(Relay.Value.kOn);
+    vacuumDump.set(Relay.Value.kOff);
   }
 
   public void releaseSuction() {
-    vacuumDump.set(Relay.Value.kOff);
+    vacuumDump.set(Relay.Value.kOn);
   }
 
   @Override

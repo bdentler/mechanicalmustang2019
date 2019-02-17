@@ -10,11 +10,11 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class MoveWristUp extends Command {
-  public MoveWristUp() {
+public class wristDown extends Command {
+  public wristDown() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.m_WristMotor);
+    requires(Robot.m_actuateWristMotor);
   }
 
   // Called just before this Command runs the first time
@@ -25,7 +25,8 @@ public class MoveWristUp extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.m_WristMotor.MoveUp();
+    Robot.m_actuateWristMotor.lowerWrist();
+    System.out.println(Robot.m_actuateWristMotor.getWristCount());
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -37,7 +38,7 @@ public class MoveWristUp extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.m_WristMotor.Stop();
+    Robot.m_actuateWristMotor.stopMotor();
   }
 
   // Called when another command which requires one or more of the same
