@@ -26,7 +26,7 @@ public class vacuumMotor extends Subsystem {
 
   public void startVacuum() {
     double currentSpeed = vacMotor.getSpeed();
-    if (currentSpeed < 0.8) {
+    if (currentSpeed < RobotMap.VACUUM_MOTOR_MAX_SPEED) {
       vacMotor.setSpeed(currentSpeed + RobotMap.VACUUM_MOTOR_SPEED_ADJUST);
     }
   }

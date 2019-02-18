@@ -41,13 +41,14 @@ public class RobotMap {
 
   // Motor Ramping adjustments (smaller numbers take more time to ramp up)
   public static final double VACUUM_MOTOR_SPEED_ADJUST = 0.001;
+  public static final double VACUUM_MOTOR_MAX_SPEED = 0.75;
   //public static final double BOOM_MOTOR_SPEED_ADJUST = 0.03;
 
   // Motor Counters
   public static final int FRONT_LIFT_COUNTER_COUNT = 200;  //Number of motor counts to reach correct position
   public static final int CLIMBING_ARMS_REAR_COUNT = 200;  //Number of motor counts to reach correct position
   public static final int BOOM_ARM_DEPLOY_COUNT = 500;     //Number of motor counts to deploy boom arm from stowed position
-  public static final int[] boomPositionCount = {0, 100, 200, 300, 400, 500};
+  public static final int[] boomPositionCount = {0, 10, 20, 30, 40, 50};
 
   // Time Outs
   public static final double LIFT_DRIVE_WHEEL_ON_TIME = 15; //Drive wheels on lift arm

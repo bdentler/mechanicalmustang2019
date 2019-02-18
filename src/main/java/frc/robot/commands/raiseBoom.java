@@ -27,17 +27,17 @@ public class raiseBoom extends Command {
   @Override
   protected void initialize() {
     if (Robot.boomLocked) {
-      end();
+      interrupted();
     } else {
       Robot.boomLocked = true;
     }
     targetBoomPosition = Robot.currentBoomPosition + 1;
     if (targetBoomPosition > 5) {
-      end();
+      interrupted();
     } else {
       Robot.m_boomMotor.resetBoomCounter();
       countReached = false;
-      targetCounts = RobotMap.boomPositionCount[targetBoomPosition] - Robot.currentBoomPosition;
+      targetCounts = RobotMap.boomPositionCount[targetBoomPosition] - RobotMap.boomPositionCount[Robot.currentBoomPosition];
     }
   }
 
@@ -67,6 +67,5 @@ public class raiseBoom extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    end();
   }
 }
