@@ -29,10 +29,10 @@ public class OI {
   Button D1 = new JoystickButton(driveController, 1);
 
   public OI() {
-    F1.whileHeld(new wristDown());
-    F2.whileHeld(new wristUp());
+    F1.whenPressed(new lowerBoom());
+    F2.whileHeld(new trimBoomU());
     F3.whileHeld(new trimBoomD());
-    F4.whileHeld(new trimBoomU());
+    F4.whenPressed(new raiseBoom());
     F5.whenPressed(new vacuumBegin());
     D1.whenPressed(new dropSuction());
   }

@@ -39,6 +39,7 @@ public class wristDown extends Command {
   @Override
   protected void end() {
     Robot.m_actuateWristMotor.stopMotor();
+    Robot.m_actuateWristMotor.resetWristCounter();
   }
 
   // Called when another command which requires one or more of the same

@@ -38,10 +38,9 @@ public class Robot extends TimedRobot {
   public static vacuumMotor m_vacuumMotor = null;
   public static boomMotor m_boomMotor = null;
   public static vacuumDumpValve m_vacuumDumpValve = null;
-  public static int currentBoomPosition;
+  public static int currentBoomPosition = 0;
+  public static boolean boomLocked = false;
   public static OI m_oi;
-
-
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -61,11 +60,6 @@ public class Robot extends TimedRobot {
     m_boomMotor = new boomMotor();
     m_actuateWristMotor = new actuateWristMotor();
     m_oi = new OI();
-
-
-    //engage relay so when robot is activated the vacuum system will create suction 
-    //once the motor starts--this command does not start the motor
-    m_vacuumDumpValve.makeSuction();
     
     // set the default autonomous option to lowerRobot
     m_chooser.setDefaultOption("Default Auto", new lowerRobot());

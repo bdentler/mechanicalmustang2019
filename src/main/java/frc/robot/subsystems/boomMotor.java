@@ -38,19 +38,17 @@ public class boomMotor extends Subsystem {
   }
 
   public int liftBoom() {
-    double currentSpeed = boomMotor.getSpeed();
-    if (currentSpeed > -0.8) {
-      boomMotor.setSpeed(currentSpeed - RobotMap.BOOM_MOTOR_SPEED_ADJUST);
-    }
+    boomMotor.setSpeed(RobotMap.BOOM_MOTOR_RAISE_SPEED);
     return boomCounter.get();
   }
 
   public int dropBoom() {
-    double currentSpeed = boomMotor.getSpeed();
-    if (currentSpeed < 0.8) {
-      boomMotor.setSpeed(currentSpeed + RobotMap.BOOM_MOTOR_SPEED_ADJUST);
-    }
+    boomMotor.setSpeed(RobotMap.BOOM_MOTOR_LOWER_SPEED);
     return boomCounter.get();
+  }
+
+  public void moveBoom(double boomMoveSpeed) {
+    boomMotor.setSpeed(boomMoveSpeed);
   }
 
   public void stopBoomMotor() {

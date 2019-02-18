@@ -26,7 +26,6 @@ public class trimBoomU extends Command {
   @Override
   protected void execute() {
     Robot.m_boomMotor.liftBoom();
-    System.out.println(Robot.m_boomMotor.getBoomCount());
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -39,7 +38,6 @@ public class trimBoomU extends Command {
   @Override
   protected void end() {
     Robot.m_boomMotor.stopBoomMotor();
-    //Robot.m_boomMotor.resetBoomCounter();
   }
 
   // Called when another command which requires one or more of the same
