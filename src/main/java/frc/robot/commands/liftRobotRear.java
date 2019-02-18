@@ -34,7 +34,6 @@ public class liftRobotRear extends Command {
     if (Robot.m_dropArms.raiseRobot() >= RobotMap.CLIMBING_ARMS_REAR_COUNT) {
       isCountReached = true;
     }
-    System.out.println(Robot.m_dropArms.raiseRobot());
   }
 
   // Make this return true when this Command no longer needs to run execute()

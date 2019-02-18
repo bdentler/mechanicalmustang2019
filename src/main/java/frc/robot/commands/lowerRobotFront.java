@@ -19,7 +19,6 @@ public class lowerRobotFront extends Command {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.m_liftArms);
-    //setTimeout(RobotMap.FRONT_ARM_TIME);
   }
 
   // Called just before this Command runs the first time

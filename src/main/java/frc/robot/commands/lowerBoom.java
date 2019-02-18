@@ -59,6 +59,7 @@ public class lowerBoom extends Command {
   @Override
   protected void end() {
     Robot.m_boomMotor.stopBoomMotor();
+    Robot.currentBoomPosition = targetBoomPosition;
     Robot.boomLocked = false;
   }
 

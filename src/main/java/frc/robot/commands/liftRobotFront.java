@@ -19,7 +19,6 @@ public class liftRobotFront extends Command {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.m_liftArms);
-    //setTimeout(RobotMap.FRONT_ARM_TIME);
   }
 
   // Called just before this Command runs the first time
@@ -40,7 +39,7 @@ public class liftRobotFront extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return isTimedOut();
+    return isCountReached;
   }
 
   // Called once after isFinished returns true
