@@ -25,10 +25,8 @@ public class trimBoom extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    double moveSpeed = -Robot.m_oi.functionController.getRawAxis(4);
-    if (moveSpeed > 0.1 || moveSpeed < -0.1) {
-      Robot.m_boomMotor.moveBoom(moveSpeed);
-    }
+    double moveSpeed = Robot.m_oi.functionController.getRawAxis(5);
+    Robot.m_boomMotor.moveBoom(moveSpeed);
   }
 
   // Make this return true when this Command no longer needs to run execute()

@@ -12,7 +12,6 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.commands.lowerRobot;
 import frc.robot.subsystems.boomMotor;
 import frc.robot.subsystems.driveTrain;
 import frc.robot.subsystems.dropArms;
@@ -20,7 +19,8 @@ import frc.robot.subsystems.liftArms;
 import frc.robot.subsystems.liftDriveWheel;
 import frc.robot.subsystems.vacuumMotor;
 import frc.robot.subsystems.vacuumDumpValve;
-import frc.robot.subsystems.actuateWristMotor;;
+import frc.robot.subsystems.actuateWristMotor;
+import frc.robot.commands.lowerRobot;
 
 /**
  * The VM is configured to automatically run this class, and to call the

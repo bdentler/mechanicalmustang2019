@@ -26,7 +26,6 @@ public class wristUp extends Command {
   @Override
   protected void execute() {
     Robot.m_actuateWristMotor.raiseWrist();
-    System.out.println(Robot.m_actuateWristMotor.getWristCount());
   }
 
   // Make this return true when this Command no longer needs to run execute()

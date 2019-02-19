@@ -34,21 +34,21 @@ public class RobotMap {
   public static final double REAR_ARM_LIFT_SPEED = -0.5;       //Drop arm
   public static final double REAR_ARM_LOWER_SPEED = 0.5;     //Drop arm
   public static final double LIFT_DRIVE_WHEEL_SPEED = 0.6;  //Drive wheels on lift arm
-  public static final double BOOM_MOTOR_RAISE_SPEED = -0.8;   //Rotate boom upward when boom is in operating position
-  public static final double BOOM_MOTOR_LOWER_SPEED = 0.8;    //Rotate boom downward when boom is in operating position
+  public static final double BOOM_MOTOR_RAISE_SPEED = -0.7;   //Rotate boom upward when boom is in operating position
+  public static final double BOOM_MOTOR_LOWER_SPEED = 0.7;    //Rotate boom downward when boom is in operating position
   public static final double WRIST_MOTOR_UP_SPEED = 0.7;    //Rotate wrist upward
   public static final double WRIST_MOTOR_DOWN_SPEED = -0.7;    //Rotate wrist downward
 
   // Motor Ramping adjustments (smaller numbers take more time to ramp up)
   public static final double VACUUM_MOTOR_SPEED_ADJUST = 0.001;
-  public static final double VACUUM_MOTOR_MAX_SPEED = 0.75;
+  public static final double VACUUM_MOTOR_MAX_SPEED = 0.85;
   //public static final double BOOM_MOTOR_SPEED_ADJUST = 0.03;
 
   // Motor Counters
   public static final int FRONT_LIFT_COUNTER_COUNT = 200;  //Number of motor counts to reach correct position
   public static final int CLIMBING_ARMS_REAR_COUNT = 200;  //Number of motor counts to reach correct position
-  public static final int BOOM_ARM_DEPLOY_COUNT = 500;     //Number of motor counts to deploy boom arm from stowed position
-  public static final int[] boomPositionCount = {0, 10, 20, 30, 40, 50};
+  public static final int BOOM_ARM_DEPLOY_COUNT = 479;     //Number of motor counts to deploy boom arm from stowed position
+  public static final int[] boomPositionCount = {0, 33, 82, 117, 158, 213};
 
   // Time Outs
   public static final double LIFT_DRIVE_WHEEL_ON_TIME = 15; //Drive wheels on lift arm

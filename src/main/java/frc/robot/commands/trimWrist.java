@@ -8,13 +8,18 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.DigitalInput;
 import frc.robot.Robot;
 
-public class trimBoomU extends Command {
-  public trimBoomU() {
+public class trimWrist extends Command {
+
+  DigitalInput ProcSwitch = null;
+
+  public trimWrist() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.m_boomMotor);
+    requires(Robot.m_actuateWristMotor);
+    ProcSwitch = new DigitalInput(4);
   }
 
   // Called just before this Command runs the first time
@@ -25,19 +30,20 @@ public class trimBoomU extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.m_boomMotor.liftBoom();
+    double moveSpeed = -Robot.m_oi.functionController.getRawAxis(1);
+    Robot.m_actuateWristMotor.moveWrist(moveSpeed);
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return ProcSwitch.get();
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.m_boomMotor.stopBoomMotor();
+    Robot.m_actuateWristMotor.stopMotor();
   }
 
   // Called when another command which requires one or more of the same

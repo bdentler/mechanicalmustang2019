@@ -46,6 +46,7 @@ public class deployBoom extends Command {
   @Override
   protected void end() {
     Robot.m_boomMotor.stopBoomMotor();
+    Robot.m_boomMotor.resetBoomCounter();
   }
 
   // Called when another command which requires one or more of the same

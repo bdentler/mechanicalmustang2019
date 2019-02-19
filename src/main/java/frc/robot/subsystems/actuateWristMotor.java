@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.Counter;
+import frc.robot.commands.trimWrist;
 
 /**
  * Add your docs here.
@@ -32,6 +33,7 @@ public class actuateWristMotor extends Subsystem {
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
+    setDefaultCommand(new trimWrist());
   }
 
   public void resetWristCounter() {
@@ -50,6 +52,10 @@ public class actuateWristMotor extends Subsystem {
   public int lowerWrist() {
     actuateWristMotor.setSpeed(RobotMap.WRIST_MOTOR_DOWN_SPEED);
     return wristMotorCounter.get();
+  }
+
+  public void moveWrist(double moveSpeed) {
+    actuateWristMotor.setSpeed(moveSpeed);
   }
 
   public void stopMotor() {

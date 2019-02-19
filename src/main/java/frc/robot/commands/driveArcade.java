@@ -30,13 +30,13 @@ public class driveArcade extends Command {
     double rotateSpeed = Robot.m_oi.driveController.getRawAxis(RobotMap.DRIVE_JOYSTICK_ROTATE_AXIS);
     
     //adjust joystick rotation input
-    if (rotateSpeed >= -1 && rotateSpeed < -0.1) {
-      rotateSpeed = (5 * rotateSpeed - 4) / 9;
+    /*if (rotateSpeed >= -1 && rotateSpeed < -0.1) {
+      rotateSpeed = (4 * rotateSpeed - 5) / 9;
     } else if (rotateSpeed <= 1 && rotateSpeed > 0.1) {
-      rotateSpeed = (5 * rotateSpeed + 4) / 9;
+      rotateSpeed = (4 * rotateSpeed + 5) / 9;
     } else {
       rotateSpeed = 0;
-    }
+    }*/
 
     Robot.m_driveTrain.arcadeDrive(moveSpeed, rotateSpeed);
   }
