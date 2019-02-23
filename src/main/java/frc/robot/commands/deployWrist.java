@@ -8,30 +8,30 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.RobotMap;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 
-public class deployBoom extends Command {
+public class deployWrist extends Command {
 
   boolean isCountReached = false;
 
-  public deployBoom() {
+  public deployWrist() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.m_boomMotor);
+    requires(Robot.m_actuateWristMotor);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.m_boomMotor.resetBoomCounter();
     isCountReached = false;
+    Robot.m_actuateWristMotor.resetWristCounter();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if (Robot.m_boomMotor.dropBoom() >= RobotMap.BOOM_ARM_DEPLOY_COUNT) {
+    if (Robot.m_actuateWristMotor.lowerWrist() >= RobotMap.WRIST_DEPLOY_COUNT) {
       isCountReached = true;
     }
   }
@@ -45,7 +45,7 @@ public class deployBoom extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.m_boomMotor.stopBoomMotor();
+    Robot.m_actuateWristMotor.stopMotor();
   }
 
   // Called when another command which requires one or more of the same
