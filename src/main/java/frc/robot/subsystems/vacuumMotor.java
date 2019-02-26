@@ -9,7 +9,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
-import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.Talon;
 
 /**
  * Add your docs here.
@@ -18,15 +18,15 @@ public class vacuumMotor extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  Spark vacMotor = null;
+  Talon vacMotor = null;
 
   public vacuumMotor() {
-    vacMotor =  new Spark(RobotMap.VACUUM_MOTOR_PWM);
+    vacMotor =  new Talon(RobotMap.VACUUM_MOTOR_PWM);
   }
 
   public void startVacuum() {
     double currentSpeed = vacMotor.getSpeed();
-    if (currentSpeed < 0.99) {
+    if (currentSpeed < RobotMap.VACUUM_MOTOR_MAX_SPEED) {
       vacMotor.setSpeed(currentSpeed + RobotMap.VACUUM_MOTOR_SPEED_ADJUST);
     }
   }

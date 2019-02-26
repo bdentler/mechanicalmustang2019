@@ -12,15 +12,16 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.commands.lowerRobot;
+import edu.wpi.first.cameraserver.CameraServer;
 import frc.robot.subsystems.boomMotor;
 import frc.robot.subsystems.driveTrain;
 import frc.robot.subsystems.dropArms;
 import frc.robot.subsystems.liftArms;
 import frc.robot.subsystems.liftDriveWheel;
 import frc.robot.subsystems.vacuumMotor;
-import frc.robot.subsystems.WristMotor;
-import edu.wpi.first.wpilibj.CameraServer;
+import frc.robot.subsystems.vacuumDumpValve;
+import frc.robot.subsystems.actuateWristMotor;
+import frc.robot.commands.lowerRobot;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -34,11 +35,13 @@ public class Robot extends TimedRobot {
   public static dropArms m_dropArms = null;
   public static liftArms m_liftArms = null;
   public static liftDriveWheel m_liftDriveWheel = null;
+  public static actuateWristMotor m_actuateWristMotor = null;
   public static vacuumMotor m_vacuumMotor = null;
   public static boomMotor m_boomMotor = null;
+  public static vacuumDumpValve m_vacuumDumpValve = null;
+  public static int currentBoomPosition = 0;
+  public static boolean boomLocked = false;
   public static OI m_oi;
-  public static int currentBoomPosition;
-  public static WristMotor m_WristMotor = null;
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -49,15 +52,16 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
+    CameraServer.getInstance().startAutomaticCapture();
     m_driveTrain = new driveTrain();
     m_dropArms = new dropArms();
     m_liftArms = new liftArms();
     m_liftDriveWheel = new liftDriveWheel();
     m_vacuumMotor = new vacuumMotor();
+    m_vacuumDumpValve = new vacuumDumpValve();
     m_boomMotor = new boomMotor();
+    m_actuateWristMotor = new actuateWristMotor();
     m_oi = new OI();
-    m_WristMotor = new WristMotor();
-    CameraServer.getInstance().startAutomaticCapture();
     
     // set the default autonomous option to lowerRobot
     m_chooser.setDefaultOption("Default Auto", new lowerRobot());

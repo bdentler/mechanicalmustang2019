@@ -8,44 +8,42 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.DigitalInput;
 import frc.robot.Robot;
-import frc.robot.RobotMap;
 
-public class lowerRobotRear extends Command {
+public class trimWrist extends Command {
 
-  boolean isCountReached = false;
+  DigitalInput ProcSwitch = null;
 
-  public lowerRobotRear() {
+  public trimWrist() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.m_dropArms);
+    requires(Robot.m_actuateWristMotor);
+    ProcSwitch = new DigitalInput(4);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.m_dropArms.resetRearClimbingArmCount();
-    isCountReached = false;
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if (Robot.m_dropArms.lowerRobot() >= RobotMap.CLIMBING_ARMS_REAR_COUNT) {
-      isCountReached = true;
-    } 
+    double moveSpeed = -Robot.m_oi.functionController.getRawAxis(1);
+    Robot.m_actuateWristMotor.moveWrist(moveSpeed);
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return isCountReached;
+    return ProcSwitch.get();
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.m_dropArms.armsStop();
+    Robot.m_actuateWristMotor.stopMotor();
   }
 
   // Called when another command which requires one or more of the same

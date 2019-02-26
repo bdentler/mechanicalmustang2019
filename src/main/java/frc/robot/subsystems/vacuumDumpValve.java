@@ -8,28 +8,30 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.Relay;
+import edu.wpi.first.wpilibj.Relay.Direction;
 import frc.robot.RobotMap;
 
 /**
  * Add your docs here.
  */
-public class WristMotor extends Subsystem {
+public class vacuumDumpValve extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  Spark WristMotor= null;
-  public WristMotor() {
-    WristMotor=new Spark(RobotMap.WRIST_MOTOR_PWM);
+  Relay vacuumDump = new Relay(RobotMap.VACUUM_DUMP_RELAY_PORT, Direction.kForward);
+
+  public vacuumDumpValve() {
+    vacuumDump.set(Relay.Value.kOff);
   }
-  public void MoveUp() {
-    WristMotor.setSpeed(RobotMap.WRIST_MOTOR_UP_SPEED);
+
+  public void makeSuction() {
+    vacuumDump.set(Relay.Value.kOff);
   }
-  public void MoveDown() {
-    WristMotor.setSpeed(RobotMap.WRIST_MOTOR_DOWN_SPEED);
+
+  public void releaseSuction() {
+    vacuumDump.set(Relay.Value.kOn);
   }
-  public void Stop() {
-    WristMotor.setSpeed(0);
-  }
+
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.

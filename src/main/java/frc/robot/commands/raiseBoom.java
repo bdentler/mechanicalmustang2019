@@ -11,47 +11,61 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 
-public class lowerRobotRear extends Command {
+public class raiseBoom extends Command {
 
-  boolean isCountReached = false;
+  int targetBoomPosition = 0;
+  int targetCounts = 0;
+  boolean countReached = false;
 
-  public lowerRobotRear() {
+  public raiseBoom() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.m_dropArms);
+    requires(Robot.m_boomMotor);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.m_dropArms.resetRearClimbingArmCount();
-    isCountReached = false;
+    if (Robot.boomLocked) {
+      interrupted();
+    } else {
+      Robot.boomLocked = true;
+    }
+    targetBoomPosition = Robot.currentBoomPosition + 1;
+    if (targetBoomPosition > 5) {
+      interrupted();
+    } else {
+      Robot.m_boomMotor.resetBoomCounter();
+      countReached = false;
+      targetCounts = RobotMap.boomPositionCount[targetBoomPosition] - RobotMap.boomPositionCount[Robot.currentBoomPosition];
+    }
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if (Robot.m_dropArms.lowerRobot() >= RobotMap.CLIMBING_ARMS_REAR_COUNT) {
-      isCountReached = true;
-    } 
+    if (Robot.m_boomMotor.liftBoom() >= targetCounts) {
+      countReached = true;
+    }
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return isCountReached;
+    return countReached;
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.m_dropArms.armsStop();
+    Robot.m_boomMotor.stopBoomMotor();
+    Robot.currentBoomPosition = targetBoomPosition;
+    Robot.boomLocked = false;
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    end();
   }
 }

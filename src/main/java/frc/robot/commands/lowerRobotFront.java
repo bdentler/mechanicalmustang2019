@@ -10,37 +10,30 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
-import edu.wpi.first.wpilibj.Counter;
 
 public class lowerRobotFront extends Command {
 
-  Counter frontLiftCounter = null;
   boolean isCountReached = false;
 
   public lowerRobotFront() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.m_liftArms);
-    frontLiftCounter = new Counter();
-    frontLiftCounter.setUpSource(RobotMap.CLIMBING_ARMS_FRONT_DIO);
-    frontLiftCounter.setUpDownCounterMode();
-    //setTimeout(RobotMap.FRONT_ARM_TIME);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    frontLiftCounter.reset();
+    Robot.m_liftArms.resetFrontLiftCounter();
     isCountReached = false;
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-      Robot.m_liftArms.lowerRobot();
-      if (frontLiftCounter.get() >= RobotMap.FRONT_LIFT_COUNTER_COUNT) {
-        isCountReached = true;
-      }
+    if (Robot.m_liftArms.lowerRobot() >= RobotMap.FRONT_LIFT_COUNTER_COUNT) {
+      isCountReached = true;
+    }
   }
 
   // Make this return true when this Command no longer needs to run execute()

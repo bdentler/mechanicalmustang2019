@@ -9,12 +9,14 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 
-public class MoveWristDown extends Command {
-  public MoveWristDown() {
+public class dropSuction extends Command {
+  public dropSuction() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.m_WristMotor);
+    requires(Robot.m_vacuumDumpValve);
+    setTimeout(RobotMap.VACUUM_DUMP_TIMEOUT);
   }
 
   // Called just before this Command runs the first time
@@ -25,19 +27,19 @@ public class MoveWristDown extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.m_WristMotor.MoveDown();
+    Robot.m_vacuumDumpValve.releaseSuction();
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return isTimedOut();
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.m_WristMotor.Stop();
+    Robot.m_vacuumDumpValve.makeSuction();
   }
 
   // Called when another command which requires one or more of the same

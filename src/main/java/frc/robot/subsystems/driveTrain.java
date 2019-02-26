@@ -32,13 +32,7 @@ public class driveTrain extends Subsystem {
   }
 
   public void arcadeDrive(double moveSpeed, double rotateSpeed) {
-    double currentSpeed = (leftDriveMotors.getSpeed() + rightDriveMotors.getSpeed()) / 2;
-    if (currentSpeed < moveSpeed) {
-      moveSpeed = Math.min(currentSpeed + RobotMap.MAX_LINEAR_ACCELERATION, moveSpeed);
-    } else {
-      moveSpeed = Math.max(currentSpeed - RobotMap.MAX_LINEAR_ACCELERATION, moveSpeed);
-    }
-    differentialDrive.arcadeDrive(moveSpeed, rotateSpeed * RobotMap.SCALE_BACK_ROTATION_ACCELERATION);
+    differentialDrive.arcadeDrive(moveSpeed, rotateSpeed);
   }
 
   @Override
