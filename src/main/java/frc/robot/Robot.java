@@ -20,6 +20,7 @@ import frc.robot.subsystems.liftArms;
 import frc.robot.subsystems.liftDriveWheel;
 import frc.robot.subsystems.vacuumMotor;
 import frc.robot.subsystems.WristMotor;
+import edu.wpi.first.wpilibj.CameraServer;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -56,6 +57,7 @@ public class Robot extends TimedRobot {
     m_boomMotor = new boomMotor();
     m_oi = new OI();
     m_WristMotor = new WristMotor();
+    CameraServer.getInstance().startAutomaticCapture();
     
     // set the default autonomous option to lowerRobot
     m_chooser.setDefaultOption("Default Auto", new lowerRobot());
