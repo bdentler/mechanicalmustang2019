@@ -47,7 +47,8 @@ public class RobotMap {
   //public static final double BOOM_MOTOR_SPEED_ADJUST = 0.03;
 
   // Motor Counters
-  public static final int FRONT_LIFT_COUNTER_COUNT = 200;  //Number of motor counts to reach correct position
+  public static final int FRONT_LIFT_COUNTER_COUNT = 200;//Number of motor counts to reach correct position
+  public static final int FRONT_STOW_COUNTER_COUNT = 200;  
   public static final int CLIMBING_ARMS_REAR_COUNT = 200;  //Number of motor counts to reach correct position
   public static final int BOOM_ARM_DEPLOY_COUNT = 479;     //Number of motor counts to deploy boom arm from stowed position
   public static final int WRIST_DEPLOY_COUNT = 80;
@@ -65,5 +66,6 @@ public class RobotMap {
 
   // Function control joystick (xbox controller)
   public static final int OI_FUNCTION_JOYSTICK = 1;
+
 
 }
