@@ -9,11 +9,16 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
-public class lowerRobot extends CommandGroup {
+public class stowRobot extends CommandGroup {
   /**
    * Add your docs here.
    */
-  public lowerRobot() {
+  public stowRobot() {
+
+    addParallel(new vacuumEnd());
+    addParallel(new stowWrist());
+    addParallel(new stowBoom());
+
     // Add Commands here:
     // e.g. addSequential(new Command1());
     // addSequential(new Command2());
@@ -24,8 +29,6 @@ public class lowerRobot extends CommandGroup {
     // e.g. addParallel(new Command1());
     // addSequential(new Command2());
     // Command1 and Command2 will run in parallel.
-    addParallel(new lowerRobotFront());
-    addParallel(new lowerRobotRear());
 
     // A command group will require all of the subsystems that each member
     // would require.

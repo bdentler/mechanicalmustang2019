@@ -25,7 +25,8 @@ public class testCandyCaneU extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.m_dropArms.raiseRobot();
+    System.out.println("CC-Up:");
+    System.out.println(Robot.m_dropArms.raiseRobot());
   }
 
   // Make this return true when this Command no longer needs to run execute()

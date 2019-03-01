@@ -24,6 +24,8 @@ public class RobotMap {
   public static final int CLIMBING_ARMS_REAR_DIO = 1;   //Drop arms
   public static final int BOOM_ARM_DIO = 2;             //Boom arm
   public static final int WRIST_MOTOR_DIO = 3;
+  public static final int LIFT_DRIVE_WHEEL_DIO = 4;
+  public static final int BOOM_PROX_IO = 5;
 
   // Relay Ports
   public static final int VACUUM_DUMP_RELAY_PORT = 0;   //Connect relay across Forward and Ground (Center)--reverse pin not used

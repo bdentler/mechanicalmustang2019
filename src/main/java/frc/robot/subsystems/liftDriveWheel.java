@@ -10,23 +10,34 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.Counter;
 
 /**
  * Add your docs here.
  */
 public class liftDriveWheel extends Subsystem {
   Spark liftDriveWheel = null;
+  Counter liftDriveWheelCount = null;
 
   public liftDriveWheel() {
     liftDriveWheel = new Spark(RobotMap.LIFT_DRIVE_WHEEL_PWM);
+    liftDriveWheelCount = new Counter();
+    liftDriveWheelCount.setUpSource(RobotMap.LIFT_DRIVE_WHEEL_DIO);
+    liftDriveWheelCount.setUpDownCounterMode();
   }
 
-  public void driveOn() {
+  public void resetLiftDriveCounter() {
+    liftDriveWheelCount.reset();
+  }
+
+  public int driveOn() {
     liftDriveWheel.set(RobotMap.LIFT_DRIVE_WHEEL_SPEED);
+    return liftDriveWheelCount.get();
   }
 
-  public void driveOff() {
+  public int driveOff() {
     liftDriveWheel.set(-RobotMap.LIFT_DRIVE_WHEEL_SPEED);
+    return liftDriveWheelCount.get();
   }
 
   public void driveStop() {

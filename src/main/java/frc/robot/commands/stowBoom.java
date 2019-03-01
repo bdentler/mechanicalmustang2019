@@ -9,12 +9,18 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
+import edu.wpi.first.wpilibj.DigitalInput;
 
-public class vacuumBegin extends Command {
-  public vacuumBegin() {
+public class stowBoom extends Command {
+
+  DigitalInput ProcSwitch = null;
+
+  public stowBoom() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.m_vacuumMotor);
+    requires(Robot.m_boomMotor);
+    ProcSwitch = new DigitalInput(RobotMap.BOOM_PROX_IO);
   }
 
   // Called just before this Command runs the first time
@@ -25,19 +31,19 @@ public class vacuumBegin extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.m_vacuumMotor.startVacuum();
+    Robot.m_boomMotor.liftBoom();
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return ProcSwitch.get();
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.m_vacuumMotor.stopVacuum();
+    Robot.m_boomMotor.stopBoomMotor();
   }
 
   // Called when another command which requires one or more of the same
