@@ -26,7 +26,7 @@ public class liftRobot extends CommandGroup {
     // Command1 and Command2 will run in parallel.
 
     addParallel(new liftRobotFront());
-    addSequential(new liftRobotRear());
+    addParallel(new liftRobotRear());
 
     // A command group will require all of the subsystems that each member
     // would require.

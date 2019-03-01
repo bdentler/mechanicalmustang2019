@@ -9,11 +9,25 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
-public class lowerRobot extends CommandGroup {
+public class deployRobot extends CommandGroup {
+  
   /**
-   * Add your docs here.
+   * This command group is to be run after the robot climbs
+   * down from the habitat in preparation for the match.
+   * 
+   * It moves the boom into the starting position (including the needed wrist
+   * adjustments) and starts the vacuum motor.
+   * 
+   * The command group can be assigned to a button or scheduled to run after the 
+   * after the robot climbs down.
    */
-  public lowerRobot() {
+
+  public deployRobot() {
+
+    addParallel(new deployBoom());
+    addParallel(new deployWrist());
+    addParallel(new vacuumBegin());
+    
     // Add Commands here:
     // e.g. addSequential(new Command1());
     // addSequential(new Command2());
@@ -24,8 +38,6 @@ public class lowerRobot extends CommandGroup {
     // e.g. addParallel(new Command1());
     // addSequential(new Command2());
     // Command1 and Command2 will run in parallel.
-    addParallel(new lowerRobotFront());
-    addParallel(new lowerRobotRear());
 
     // A command group will require all of the subsystems that each member
     // would require.

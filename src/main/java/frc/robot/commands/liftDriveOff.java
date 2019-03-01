@@ -9,31 +9,31 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.RobotMap;
 
 public class liftDriveOff extends Command {
   public liftDriveOff() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.m_liftDriveWheel);
-    setTimeout(RobotMap.LIFT_DRIVE_WHEEL_OFF_TIME);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    Robot.m_liftDriveWheel.resetLiftDriveCounter();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.m_liftDriveWheel.driveOff();
+    System.out.println("Lift Drive-off:");
+    System.out.println(Robot.m_liftDriveWheel.driveOff());
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return isTimedOut();
+    return false;
   }
 
   // Called once after isFinished returns true

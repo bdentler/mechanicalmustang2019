@@ -27,15 +27,19 @@ public class OI {
   Button F4 = new JoystickButton(functionController, 4);
   Button F5 = new JoystickButton(functionController, 5);
   Button F6 = new JoystickButton(functionController, 6);
+  Button F7 = new JoystickButton(functionController, 7);
+  Button F8 = new JoystickButton(functionController, 8);
   Button D1 = new JoystickButton(driveController, 1);
 
   public OI() {
-    F1.whileHeld(new wristDown());
-    F2.whileHeld(new wristUp());
-    F3.whenPressed(new lowerBoom());
-    F4.whenPressed(new raiseBoom());
-    F5.whenPressed(new vacuumBegin());
-    F6.whenPressed(new deployBoom());
+    F1.whileHeld(new testCandyCaneD());
+    F2.whileHeld(new testCandyCaneU());
+    F3.whileHeld(new testLiftArmD());
+    F4.whileHeld(new testLiftArmU());
+    F5.whileHeld(new liftDriveOn());
+    F6.whileHeld(new liftDriveOff());
+    F7.whenPressed(new deployBoom());
+    F8.whenPressed(new stowBoom());
     D1.whenPressed(new dropSuction());
   }
 
