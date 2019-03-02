@@ -9,37 +9,38 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 
-public class testCandyCaneD extends Command {
-  public testCandyCaneD() {
+public class driveOffHabitat extends Command {
+
+  public driveOffHabitat() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.m_dropArms);
+    requires(Robot.m_driveTrain);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.m_dropArms.resetRearClimbingArmCount();
+    setTimeout(RobotMap.DRIVE_OFF_HABITAT_TIME);
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    System.out.println("CC-Down:");
-    System.out.println(Robot.m_dropArms.lowerRobot());
+    Robot.m_driveTrain.arcadeDrive(-0.7, 0);
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return isTimedOut();
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.m_dropArms.armsStop();
+    Robot.m_driveTrain.arcadeDrive(0, 0);
   }
 
   // Called when another command which requires one or more of the same

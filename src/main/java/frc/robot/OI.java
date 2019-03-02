@@ -32,14 +32,14 @@ public class OI {
   Button D1 = new JoystickButton(driveController, 1);
 
   public OI() {
-    F1.whileHeld(new testCandyCaneD());
-    F2.whileHeld(new testCandyCaneU());
-    F3.whileHeld(new testLiftArmD());
-    F4.whileHeld(new testLiftArmU());
-    F5.whileHeld(new liftDriveOn());
-    F6.whileHeld(new liftDriveOff());
-    F7.whenPressed(new deployBoom());
-    F8.whenPressed(new stowBoom());
+    F1.whenPressed(new lowerBoom());
+    F2.whileHeld(new liftDriveOff());
+    F3.whileHeld(new liftDriveOn());
+    F4.whenPressed(new raiseBoom());
+    F5.whenPressed(new vacuumBegin());
+    F6.whileHeld(new stowRobot());
+    F7.whenPressed(new climbUp());
+    F8.whenPressed(new climbDown());
     D1.whenPressed(new dropSuction());
   }
 

@@ -26,7 +26,7 @@ public class deployRobot extends CommandGroup {
 
     addParallel(new deployBoom());
     addParallel(new deployWrist());
-    addParallel(new vacuumBegin());
+    //addParallel(new vacuumBegin());
     
     // Add Commands here:
     // e.g. addSequential(new Command1());

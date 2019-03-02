@@ -15,9 +15,9 @@ public class climbUp extends CommandGroup {
    */
   public climbUp() {
 
-    addParallel(new liftRobotRear());
-    addParallel(new liftRobotFront());
-    addSequential(new liftDriveOn());
+    //addParallel(new liftRobotRear());
+    //addParallel(new liftRobotFront());
+    //addSequential(new liftDriveOn());
     addParallel(new lowerRobotRear());
     addParallel(new lowerRobotFront());
 
