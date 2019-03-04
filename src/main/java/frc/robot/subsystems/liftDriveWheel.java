@@ -31,12 +31,12 @@ public class liftDriveWheel extends Subsystem {
   }
 
   public int driveOn() {
-    liftDriveWheel.set(RobotMap.LIFT_DRIVE_WHEEL_SPEED);
+    liftDriveWheel.set(RobotMap.LIFT_DRIVE_WHEEL_ON_SPEED);
     return liftDriveWheelCount.get();
   }
 
   public int driveOff() {
-    liftDriveWheel.set(-RobotMap.LIFT_DRIVE_WHEEL_SPEED);
+    liftDriveWheel.set(RobotMap.LIFT_DRIVE_WHEEL_OFF_SPEED);
     return liftDriveWheelCount.get();
   }
 

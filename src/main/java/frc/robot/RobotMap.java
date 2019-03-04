@@ -31,15 +31,16 @@ public class RobotMap {
   public static final int VACUUM_DUMP_RELAY_PORT = 0;   //Connect relay across Forward and Ground (Center)--reverse pin not used
 
   // Motor Speeds
-  public static final double FRONT_ARM_LIFT_SPEED = -1.0;      //Lift arm
-  public static final double FRONT_ARM_LOWER_SPEED = 0.7;    //Lift arm
-  public static final double REAR_ARM_LIFT_SPEED = -1.0;       //Drop arm
-  public static final double REAR_ARM_LOWER_SPEED = 0.7;     //Drop arm
-  public static final double LIFT_DRIVE_WHEEL_SPEED = 0.6;  //Drive wheels on lift arm
+  public static final double FRONT_ARM_LIFT_SPEED = -1.0;   //Lift arm
+  public static final double FRONT_ARM_LOWER_SPEED = 0.7;   //Lift arm
+  public static final double REAR_ARM_LIFT_SPEED = -1.0;    //Drop arm
+  public static final double REAR_ARM_LOWER_SPEED = 0.7;    //Drop arm
+  public static final double LIFT_DRIVE_WHEEL_ON_SPEED = 0.6;     //Drive wheels on lift arm
+  public static final double LIFT_DRIVE_WHEEL_OFF_SPEED = -0.6;   //Drive wheels on lift arm
   public static final double BOOM_MOTOR_RAISE_SPEED = -0.7;   //Rotate boom upward when boom is in operating position
   public static final double BOOM_MOTOR_LOWER_SPEED = 0.7;    //Rotate boom downward when boom is in operating position
-  public static final double WRIST_MOTOR_UP_SPEED = 0.7;    //Rotate wrist upward
-  public static final double WRIST_MOTOR_DOWN_SPEED = -0.5;    //Rotate wrist downward
+  public static final double WRIST_MOTOR_UP_SPEED = 0.7;      //Rotate wrist upward
+  public static final double WRIST_MOTOR_DOWN_SPEED = -0.5;   //Rotate wrist downward
 
   // Motor Ramping adjustments (smaller numbers take more time to ramp up)
   public static final double VACUUM_MOTOR_SPEED_ADJUST = 0.001;
@@ -47,16 +48,17 @@ public class RobotMap {
   //public static final double BOOM_MOTOR_SPEED_ADJUST = 0.03;
 
   // Motor Counters
-  public static final int FRONT_LIFT_COUNTER_COUNT = 380;//Number of motor counts to reach correct position
-  public static final int FRONT_STOW_COUNTER_COUNT = 380;  
-  public static final int CLIMBING_ARMS_REAR_COUNT = 380;  //Number of motor counts to reach correct position
-  public static final int BOOM_ARM_DEPLOY_COUNT = 479;     //Number of motor counts to deploy boom arm from stowed position
-  public static final int WRIST_DEPLOY_COUNT = 70;
+  public static final int FRONT_LIFT_COUNTER_COUNT = 380;   //lift arm deploy
+  public static final int FRONT_STOW_COUNTER_COUNT = 380;   //lift arm stow 
+  public static final int CLIMBING_ARMS_REAR_COUNT = 380;   //drop arm deploy
+  public static final int CLIMBING_ARMS_STOW_COUNT = 380;   //drop arm stow
+  public static final int LIFT_DRIVE_OFF_COUNT = 0;         //lift arm drive wheel count driving off
+  public static final int LIFT_DRIVE_ON_COUNT = 0;          //lift arm drive wheel count driving on
+  public static final int BOOM_ARM_DEPLOY_COUNT = 479;      //boom arm deploy from stowed position
+  public static final int WRIST_DEPLOY_COUNT = 70;          //wrist deploy from stow and back to stow
   public static final int[] boomPositionCount = {0, 33, 82, 117, 158, 213};
 
   // Time Outs
-  public static final double LIFT_DRIVE_WHEEL_ON_TIME = 15; //Drive wheels on lift arm
-  public static final double LIFT_DRIVE_WHEEL_OFF_TIME = 5; //Drive wheels on lift arm
   public static final double VACUUM_DUMP_TIMEOUT = 2;       //Length of time in seconds that vacuum is dumped
   public static final double DRIVE_OFF_HABITAT_TIME = 3;    //Turn on main drive wheels for this number of seconds
 
@@ -67,4 +69,5 @@ public class RobotMap {
 
   // Function control joystick (xbox controller)
   public static final int OI_FUNCTION_JOYSTICK = 1;
+
 }

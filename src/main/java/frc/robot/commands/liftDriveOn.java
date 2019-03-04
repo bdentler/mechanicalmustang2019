@@ -9,8 +9,12 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 
 public class liftDriveOn extends Command {
+
+  boolean isCountReached = false;
+
   public liftDriveOn() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
@@ -21,6 +25,7 @@ public class liftDriveOn extends Command {
   @Override
   protected void initialize() {
     Robot.m_liftDriveWheel.resetLiftDriveCounter();
+    isCountReached = false;
   }
 
   // Called repeatedly when this Command is scheduled to run
@@ -28,12 +33,16 @@ public class liftDriveOn extends Command {
   protected void execute() {
     System.out.println("Lift Drive-on:");
     System.out.println(Robot.m_liftDriveWheel.driveOn());
+    /*if (Robot.m_liftDriveWheel.driveOn() >= RobotMap.LIFT_DRIVE_ON_COUNT) {
+      isCountReached = false;
+    }*/
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
     return false;
+    //return isCountReached;
   }
 
   // Called once after isFinished returns true
