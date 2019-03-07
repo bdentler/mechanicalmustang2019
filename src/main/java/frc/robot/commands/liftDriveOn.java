@@ -31,18 +31,15 @@ public class liftDriveOn extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    System.out.println("Lift Drive-on:");
-    System.out.println(Robot.m_liftDriveWheel.driveOn());
-    /*if (Robot.m_liftDriveWheel.driveOn() >= RobotMap.LIFT_DRIVE_ON_COUNT) {
+    if (Robot.m_liftDriveWheel.driveOn() >= RobotMap.LIFT_DRIVE_ON_COUNT) {
       isCountReached = false;
-    }*/
+    }
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
-    //return isCountReached;
+    return isCountReached;
   }
 
   // Called once after isFinished returns true

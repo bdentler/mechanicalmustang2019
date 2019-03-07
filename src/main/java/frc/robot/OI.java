@@ -33,8 +33,8 @@ public class OI {
 
   public OI() {
     F1.whenPressed(new lowerBoom());
-    F2.whileHeld(new liftDriveOff());
-    F3.whileHeld(new liftDriveOn());
+    F2.whileHeld(new testLiftArmU());
+    F3.whileHeld(new testLiftArmD());
     F4.whenPressed(new raiseBoom());
     F5.whenPressed(new vacuumBegin());
     F6.whileHeld(new stowRobot());

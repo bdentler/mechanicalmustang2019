@@ -11,9 +11,8 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 
-public class driveOffHabitat extends Command {
-
-  public driveOffHabitat() {
+public class driveOffUpperHabitat extends Command {
+  public driveOffUpperHabitat() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.m_driveTrain);
@@ -22,13 +21,13 @@ public class driveOffHabitat extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    setTimeout(RobotMap.DRIVE_OFF_HABITAT_TIME);
+    setTimeout(RobotMap.DRIVE_OFF_UPPER_HABITAT);
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.m_driveTrain.arcadeDrive(0.6, 0);
+    Robot.m_driveTrain.arcadeDrive(0.5, 0);
   }
 
   // Make this return true when this Command no longer needs to run execute()
