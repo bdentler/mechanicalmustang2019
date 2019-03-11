@@ -18,20 +18,20 @@ public class deployWrist extends Command {
   public deployWrist() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.m_actuateWristMotor);
+    requires(Robot.m_wristMotor);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
     isCountReached = false;
-    Robot.m_actuateWristMotor.resetWristCounter();
+    Robot.m_wristMotor.resetCounter();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if (Robot.m_actuateWristMotor.lowerWrist() >= RobotMap.WRIST_DEPLOY_COUNT) {
+    if (Robot.m_wristMotor.wristDown() >= RobotMap.WRIST_DEPLOY_COUNT) {
       isCountReached = true;
     }
   }
@@ -45,7 +45,7 @@ public class deployWrist extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.m_actuateWristMotor.stopMotor();
+    Robot.m_wristMotor.stopMotor();
   }
 
   // Called when another command which requires one or more of the same

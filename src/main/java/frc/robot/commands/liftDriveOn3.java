@@ -11,11 +11,11 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 
-public class liftDriveOn extends Command {
+public class liftDriveOn3 extends Command {
 
   boolean isCountReached = false;
 
-  public liftDriveOn() {
+  public liftDriveOn3() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.m_liftDriveWheel);
@@ -31,8 +31,8 @@ public class liftDriveOn extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if (Robot.m_liftDriveWheel.driveOn() >= RobotMap.LIFT_DRIVE_ON_COUNT) {
-      isCountReached = false;
+    if (Robot.m_liftDriveWheel.driveOn() >= RobotMap.LIFT_DRIVE_ON_COUNT3) {
+      isCountReached = true;
     }
   }
 

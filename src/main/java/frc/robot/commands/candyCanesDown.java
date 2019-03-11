@@ -10,24 +10,25 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class testCandyCaneU extends Command {
-  public testCandyCaneU() {
+public class candyCanesDown extends Command {
+
+  public candyCanesDown() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.m_dropArms);
+    requires(Robot.m_candyCanes);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.m_dropArms.resetRearClimbingArmCount();
+    Robot.m_candyCanes.resetCount();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    System.out.println("CC-Up:");
-    System.out.println(Robot.m_dropArms.raiseRobot());
+    System.out.println("candy cane down");
+    System.out.println(Robot.m_candyCanes.lowerArm());
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -39,7 +40,7 @@ public class testCandyCaneU extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.m_dropArms.armsStop();
+    Robot.m_candyCanes.armsStop();
   }
 
   // Called when another command which requires one or more of the same

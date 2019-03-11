@@ -24,14 +24,14 @@ public class lowerRobotFront extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.m_liftArms.resetFrontLiftCounter();
+    Robot.m_liftArms.resetCounter();
     isCountReached = false;
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if (Robot.m_liftArms.lowerRobot() >= RobotMap.FRONT_LIFT_COUNTER_COUNT) {
+    if (Robot.m_liftArms.raiseArm() >= RobotMap.LIFTARM_UP_COUNT) {
       isCountReached = true;
     }
   }

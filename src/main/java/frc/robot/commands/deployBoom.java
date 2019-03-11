@@ -24,7 +24,7 @@ public class deployBoom extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.m_boomMotor.resetBoomCounter();
+    Robot.m_boomMotor.resetCounter();
     isCountReached = false;
   }
 

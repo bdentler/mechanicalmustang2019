@@ -10,6 +10,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.buttons.POVButton;
 import frc.robot.commands.*;
 
 /**
@@ -30,17 +31,25 @@ public class OI {
   Button F7 = new JoystickButton(functionController, 7);
   Button F8 = new JoystickButton(functionController, 8);
   Button D1 = new JoystickButton(driveController, 1);
+  POVButton POVUp = new POVButton(functionController, 0);
+  POVButton POVRight = new POVButton(functionController, 90);
+  POVButton POVDown = new POVButton(functionController, 180);
+  POVButton POVLeft = new POVButton(functionController, 270);
 
   public OI() {
     F1.whenPressed(new lowerBoom());
-    F2.whileHeld(new testLiftArmU());
-    F3.whileHeld(new testLiftArmD());
+    //F2.whileHeld(new testLiftArmU());
+    //F3.whileHeld(new testLiftArmD());
     F4.whenPressed(new raiseBoom());
     F5.whenPressed(new vacuumBegin());
-    F6.whileHeld(new stowRobot());
-    F7.whenPressed(new climbUp());
-    F8.whenPressed(new climbDown());
+    F6.whenPressed(new vacuumEnd());
+    F7.whenPressed(new climbUp2());
+    F8.whenPressed(new climbUp3());
     D1.whenPressed(new dropSuction());
+    POVUp.whileHeld(new candyCanesUp());
+    POVDown.whileHeld(new candyCanesDown());
+    POVRight.whileHeld(new liftArmsUp());
+    POVLeft.whileHeld(new liftArmsDown());
   }
 
   //// CREATING BUTTONS

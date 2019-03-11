@@ -9,16 +9,11 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
-public class stowRobot extends CommandGroup {
+public class climbUp3 extends CommandGroup {
   /**
    * Add your docs here.
    */
-  public stowRobot() {
-
-    addParallel(new vacuumEnd());
-    addParallel(new stowWrist());
-    addParallel(new stowBoom());
-
+  public climbUp3() {
     // Add Commands here:
     // e.g. addSequential(new Command1());
     // addSequential(new Command2());

@@ -35,7 +35,7 @@ public class raiseBoom extends Command {
     if (targetBoomPosition > 5) {
       interrupted();
     } else {
-      Robot.m_boomMotor.resetBoomCounter();
+      Robot.m_boomMotor.resetCounter();
       countReached = false;
       targetCounts = RobotMap.boomPositionCount[targetBoomPosition] - RobotMap.boomPositionCount[Robot.currentBoomPosition];
     }

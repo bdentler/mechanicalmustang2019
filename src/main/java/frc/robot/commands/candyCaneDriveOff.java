@@ -9,36 +9,45 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 
-public class wristUp extends Command {
-  public wristUp() {
+public class candyCaneDriveOff extends Command {
+
+  boolean isCountReached = false;
+
+  public candyCaneDriveOff() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.m_actuateWristMotor);
+    requires(Robot.m_candyCaneDriveWheel);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    Robot.m_candyCaneDriveWheel.resetCounter();
+    isCountReached = false;
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.m_actuateWristMotor.raiseWrist();
+    System.out.println("candycane drive off");
+    System.out.println(Robot.m_candyCaneDriveWheel.getCount());
+    if (Robot.m_candyCaneDriveWheel.driveOff() >= RobotMap.CANDYCANES_DOWN_COUNT) {
+      isCountReached = true;
+    }
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return isCountReached;
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.m_actuateWristMotor.stopMotor();
-    Robot.m_actuateWristMotor.resetWristCounter();
+    Robot.m_candyCaneDriveWheel.stopMotor();
   }
 
   // Called when another command which requires one or more of the same
