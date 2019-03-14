@@ -15,11 +15,22 @@ public class climbUp extends CommandGroup {
    */
   public climbUp() {
 
+    addSequential(new liftRobotRearEnd());
+    addParallel(new liftRobotRearEnd());
+    addParallel(new liftRobotFrontEnd());
+    addSequential(new liftDriveOn());
+    //addSequential(new driveOffUpperHabitat());
+    //addSequential(new liftDriveOff());
+    addParallel(new lowerRobotRearEnd());
+    addParallel(new lowerRobotFrontEnd());
+    //addParallel(new driveOffHabitat());
+    //addSequential(new deployRobot());
+
     //addParallel(new liftRobotRear());
     //addParallel(new liftRobotFront());
     //addSequential(new liftDriveOn());
-    addParallel(new lowerRobotRear());
-    addParallel(new lowerRobotFront());
+    // addParallel(new lowerRobotRear());
+    //addParallel(new lowerRobotFront());
 
     // Add Commands here:
     // e.g. addSequential(new Command1());

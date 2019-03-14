@@ -21,7 +21,8 @@ import frc.robot.subsystems.liftDriveWheel;
 import frc.robot.subsystems.vacuumMotor;
 import frc.robot.subsystems.vacuumDumpValve;
 import frc.robot.subsystems.actuateWristMotor;
-import frc.robot.commands.lowerRobot;
+import frc.robot.commands.climbDown;
+
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -64,7 +65,7 @@ public class Robot extends TimedRobot {
     m_oi = new OI();
     
     // set the default autonomous option to lowerRobot
-    m_chooser.setDefaultOption("Default Auto", new lowerRobot());
+    m_chooser.setDefaultOption("Default Auto", new climbDown());
     
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);

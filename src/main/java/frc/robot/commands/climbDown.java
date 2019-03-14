@@ -21,7 +21,7 @@ public class climbDown extends CommandGroup {
     addParallel(new lowerRobotRear());
     addParallel(new lowerRobotFront());
     addParallel(new driveOffHabitat());
-    addSequential(new deployRobot());
+    //addSequential(new deployRobot());
 
     // Add Commands here:
     // e.g. addSequential(new Command1());

@@ -32,10 +32,10 @@ public class RobotMap {
 
   // Motor Speeds
   public static final double FRONT_ARM_LIFT_SPEED = -1.0;   //Lift arm
-  public static final double FRONT_ARM_LOWER_SPEED = .7;   //Lift arm
+  public static final double FRONT_ARM_LOWER_SPEED = 0.7;   //Lift arm
   public static final double REAR_ARM_LIFT_SPEED = -1.0;    //Drop arm
   public static final double REAR_ARM_LOWER_SPEED = 0.7;    //Drop arm
-  public static final double LIFT_DRIVE_WHEEL_ON_SPEED = 0.6;     //Drive wheels on lift arm
+  public static final double LIFT_DRIVE_WHEEL_ON_SPEED = 0.8;     //Drive wheels on lift arm
   public static final double LIFT_DRIVE_WHEEL_OFF_SPEED = -0.6;   //Drive wheels on lift arm
   public static final double BOOM_MOTOR_RAISE_SPEED = -0.7;   //Rotate boom upward when boom is in operating position
   public static final double BOOM_MOTOR_LOWER_SPEED = 0.7;    //Rotate boom downward when boom is in operating position
@@ -44,23 +44,29 @@ public class RobotMap {
 
   // Motor Ramping adjustments (smaller numbers take more time to ramp up)
   public static final double VACUUM_MOTOR_SPEED_ADJUST = 0.001;
-  public static final double VACUUM_MOTOR_MAX_SPEED = 0.9;
+  public static final double VACUUM_MOTOR_MAX_SPEED = 1;
   //public static final double BOOM_MOTOR_SPEED_ADJUST = 0.03;
 
   // Motor Counters
-  public static final int FRONT_LIFT_COUNTER_COUNT = 320;   //lift arm deploy
-  public static final int FRONT_STOW_COUNTER_COUNT = 320;   //lift arm stow 
-  public static final int CLIMBING_ARMS_REAR_COUNT = 380;   //drop arm deploy
-  public static final int CLIMBING_ARMS_STOW_COUNT = 380;   //drop arm stow
+  public static final int FRONT_LIFT_COUNTER_COUNT = 300;   //lift arm deploy
+  public static final int FRONT_STOW_COUNTER_COUNT = 300;   //lift arm stow 
+  public static final int CLIMBING_ARMS_REAR_COUNT = 280;   //drop arm deploy
+  public static final int CLIMBING_ARMS_STOW_COUNT = 280;   //drop arm stow
+
+  public static final int FRONT_LIFT_END_COUNTER_COUNT = 360;   //lift arm deploy END
+  public static final int FRONT_STOW_END_COUNTER_COUNT = 360;   //lift arm stow END
+  public static final int CLIMBING_ARMS_END_REAR_COUNT = 220;   //drop arm deploy END
+  public static final int CLIMBING_ARMS_END_STOW_COUNT = 440;   //drop arm stow END
+
   public static final int LIFT_DRIVE_OFF_COUNT = 80;         //lift arm drive wheel count driving off
-  public static final int LIFT_DRIVE_ON_COUNT = 400;          //lift arm drive wheel count driving on
-  public static final int BOOM_ARM_DEPLOY_COUNT = 479;      //boom arm deploy from stowed position
-  public static final int WRIST_DEPLOY_COUNT = 140;          //wrist deploy from stow and back to stow
+  public static final int LIFT_DRIVE_ON_COUNT = 500;          //lift arm drive wheel count driving on
+  public static final int BOOM_ARM_DEPLOY_COUNT = 379;      //boom arm deploy from stowed position
+  public static final int WRIST_DEPLOY_COUNT = 200;          //wrist deploy from stow and back to stow
   public static final int[] boomPositionCount = {0, 33, 82, 117, 158, 213};
 
   // Time Outs
   public static final double VACUUM_DUMP_TIMEOUT = 2;       //Length of time in seconds that vacuum is dumped
-  public static final double DRIVE_OFF_HABITAT_TIME = 5;    //Turn on main drive wheels for this number of seconds
+  public static final double DRIVE_OFF_HABITAT_TIME = 2;    //Turn on main drive wheels for this number of seconds
   public static final double DRIVE_OFF_UPPER_HABITAT = 3;
 
   // Drive control joystick

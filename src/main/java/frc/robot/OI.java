@@ -10,6 +10,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.buttons.POVButton;
 import frc.robot.commands.*;
 
 /**
@@ -22,25 +23,35 @@ public class OI {
   public Joystick functionController = new Joystick(RobotMap.OI_FUNCTION_JOYSTICK);
 
   Button F1 = new JoystickButton(functionController, 1);
-  Button F2 = new JoystickButton(functionController, 2);
-  Button F3 = new JoystickButton(functionController, 3);
+  //Button F2 = new JoystickButton(functionController, 2);
+  //Button F3 = new JoystickButton(functionController, 3);
   Button F4 = new JoystickButton(functionController, 4);
   Button F5 = new JoystickButton(functionController, 5);
   Button F6 = new JoystickButton(functionController, 6);
   Button F7 = new JoystickButton(functionController, 7);
   Button F8 = new JoystickButton(functionController, 8);
   Button D1 = new JoystickButton(driveController, 1);
+  POVButton povUp = new POVButton(functionController, 0);
+  POVButton povDown = new POVButton(functionController, 180);
+  POVButton povRight = new POVButton(functionController, 90);
+  POVButton povLeft = new POVButton(functionController, 270);
+
 
   public OI() {
     F1.whenPressed(new lowerBoom());
-    F2.whileHeld(new testLiftArmU());
-    F3.whileHeld(new testLiftArmD());
+    //F2.whileHeld(new testLiftArmU());
+   // F3.whileHeld(new testLiftArmD());
     F4.whenPressed(new raiseBoom());
-    F5.whenPressed(new vacuumBegin());
-    F6.whileHeld(new stowRobot());
+    F6.whenPressed(new vacuumBegin());
+    F5.whileHeld(new liftDriveOn());
+   
     F7.whenPressed(new climbUp());
     F8.whenPressed(new climbDown());
     D1.whenPressed(new dropSuction());
+    povUp.whileHeld(new testCandyCaneD());
+    povDown.whileHeld(new testCandyCaneU());
+    povRight.whileHeld(new testLiftArmD());
+    povLeft.whileHeld(new testLiftArmU());
   }
 
   //// CREATING BUTTONS

@@ -24,6 +24,10 @@ public class vacuumMotor extends Subsystem {
     vacMotor =  new Talon(RobotMap.VACUUM_MOTOR_PWM);
   }
 
+  public double vacuumState() {
+    return vacMotor.getSpeed();
+  }
+
   public void startVacuum() {
     double currentSpeed = vacMotor.getSpeed();
     if (currentSpeed < RobotMap.VACUUM_MOTOR_MAX_SPEED) {
