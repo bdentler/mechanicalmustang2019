@@ -41,8 +41,8 @@ public class OI {
     //F2.whileHeld(new testLiftArmU());
     //F3.whileHeld(new testLiftArmD());
     F4.whenPressed(new raiseBoom());
-    F5.whenPressed(new vacuumBegin());
-    F6.whenPressed(new vacuumEnd());
+    //F5.whenPressed(new vacuumBegin());
+    F6.whenPressed(new vacuumToggle());
     F7.whenPressed(new climbUp2());
     F8.whenPressed(new climbUp3());
     D1.whenPressed(new dropSuction());

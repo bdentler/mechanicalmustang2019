@@ -8,29 +8,46 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.Relay;
-import edu.wpi.first.wpilibj.Relay.Direction;
-import edu.wpi.first.wpilibj.Relay.Value;
+//import edu.wpi.first.wpilibj.Relay;
+//import edu.wpi.first.wpilibj.Relay.Direction;
+//import edu.wpi.first.wpilibj.Relay.Value;
+import edu.wpi.first.wpilibj.Talon;
 import frc.robot.RobotMap;
 
 public class vacuumMotor extends Subsystem {
 
-  Relay vacMotor = new Relay(RobotMap.VACUUM_RELAY_PORT, Direction.kForward);
+  //Relay vacMotor = new Relay(RobotMap.VACUUM_RELAY_PORT, Direction.kForward);
+  Talon vacMotor = new Talon(RobotMap.VACUUM_MOTOR_PWM);
 
   public vacuumMotor() {
-    vacMotor.set(Relay.Value.kOff);
+    //vacMotor.set(Relay.Value.kOff);
   }
 
   public void startVacuum() {
-    vacMotor.set(Relay.Value.kOn);
+    //vacMotor.set(Relay.Value.kOn);
+    double currentSpeed = vacMotor.getSpeed();
+    if (currentSpeed <= RobotMap.VACUUM_MAX_SPEED) {
+      vacMotor.setSpeed(currentSpeed + RobotMap.VACUUM_RAMP);
+    } else {
+      vacMotor.setSpeed(RobotMap.VACUUM_MAX_SPEED);
+    }
   }
-
+/*
   public Value vacState() {
     return vacMotor.get();
   }
+*/
+  public boolean vacState() {
+    if (vacMotor.getSpeed() > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   public void stopVacuum() {
-    vacMotor.set(Relay.Value.kOff);
+    //vacMotor.set(Relay.Value.kOff);
+    vacMotor.setSpeed(0);
   }
 
   @Override

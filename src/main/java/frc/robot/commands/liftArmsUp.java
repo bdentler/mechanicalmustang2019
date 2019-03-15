@@ -21,13 +21,21 @@ public class liftArmsUp extends Command {
   @Override
   protected void initialize() {
     Robot.m_liftArms.resetCounter();
+    Robot.liftArmSameCount = 0;
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    System.out.println("short arm up");
-    System.out.println(Robot.m_liftArms.raiseArm());
+    if (Robot.liftArmSameCount >= 5) {
+      end();
+    }
+    int current = Robot.m_liftArms.raiseArm();
+    if (Robot.liftArmLastCount == current) {
+      Robot.liftArmSameCount += 1;
+    } else {
+      Robot.liftArmLastCount = current;
+    }
   }
 
   // Make this return true when this Command no longer needs to run execute()

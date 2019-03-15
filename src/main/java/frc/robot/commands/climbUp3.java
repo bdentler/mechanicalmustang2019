@@ -14,6 +14,24 @@ public class climbUp3 extends CommandGroup {
    * Add your docs here.
    */
   public climbUp3() {
+    addSequential(new liftRobotRear3());
+    addParallel(new liftRobotRear3());
+    addSequential(new liftRobotFront3());
+    addParallel(new candyCaneDriveOn3());
+    addSequential(new liftDriveOn3());
+    //addSequential(new driveOffUpperHabitat());
+    //addSequential(new liftDriveOff());
+    addParallel(new lowerRobotRear());
+    addParallel(new lowerRobotFront());
+    //addParallel(new driveOffHabitat());
+    //addSequential(new deployRobot());
+
+    //addParallel(new liftRobotRear());
+    //addParallel(new liftRobotFront());
+    //addSequential(new liftDriveOn());
+    // addParallel(new lowerRobotRear());
+    //addParallel(new lowerRobotFront());
+ 
     // Add Commands here:
     // e.g. addSequential(new Command1());
     // addSequential(new Command2());

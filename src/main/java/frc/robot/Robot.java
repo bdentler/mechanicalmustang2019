@@ -41,6 +41,10 @@ public class Robot extends TimedRobot {
   public static vacuumMotor m_vacuumMotor = null;
   public static boomMotor m_boomMotor = null;
   public static vacuumDumpValve m_vacuumDumpValve = null;
+  public static int liftArmLastCount = 0;
+  public static int liftArmSameCount = 0;
+  public static int candyCaneArmLastCount = 0;
+  public static int candyCaneArmSameCount = 0;
   public static int currentBoomPosition = 0;
   public static boolean boomLocked = false;
   public static OI m_oi;

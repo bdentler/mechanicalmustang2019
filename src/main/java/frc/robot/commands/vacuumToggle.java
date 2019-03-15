@@ -7,29 +7,30 @@
 
 package frc.robot.commands;
 
+//import edu.wpi.first.wpilibj.Relay.Value;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class candyCanesDown extends Command {
-
-  public candyCanesDown() {
+public class vacuumToggle extends Command {
+  public vacuumToggle() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.m_candyCanes);
-    
+    requires(Robot.m_vacuumMotor);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.m_candyCanes.resetCount();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    System.out.println("candy cane down");
-    System.out.println(Robot.m_candyCanes.lowerArm());
+    if (Robot.m_vacuumMotor.vacState() == true) {    //Value.kOn) {
+      Robot.m_vacuumMotor.stopVacuum();
+    } else {
+      Robot.m_vacuumMotor.startVacuum();
+    }
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -41,13 +42,11 @@ public class candyCanesDown extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.m_candyCanes.armsStop();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    end();
   }
 }

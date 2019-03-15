@@ -21,13 +21,21 @@ public class candyCanesUp extends Command {
   @Override
   protected void initialize() {
     Robot.m_candyCanes.resetCount();
+    Robot.candyCaneArmSameCount = 0;
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    System.out.println("candy cane up");
-    System.out.println(Robot.m_candyCanes.raiseArm());
+    if (Robot.candyCaneArmSameCount >= 5) {
+      end();
+    }
+    int current = Robot.m_candyCanes.raiseArm();
+    if (Robot.candyCaneArmLastCount == current) {
+      Robot.candyCaneArmSameCount += 1;
+    } else {
+      Robot.candyCaneArmLastCount = current;
+    }
   }
 
   // Make this return true when this Command no longer needs to run execute()
