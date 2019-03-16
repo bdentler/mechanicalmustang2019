@@ -28,6 +28,7 @@ public class liftArmsUp extends Command {
   @Override
   protected void execute() {
     if (Robot.liftArmSameCount >= 5) {
+      System.out.println("Lift arms hit stop");
       end();
     }
     int current = Robot.m_liftArms.raiseArm();

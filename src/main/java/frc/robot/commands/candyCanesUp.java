@@ -28,6 +28,7 @@ public class candyCanesUp extends Command {
   @Override
   protected void execute() {
     if (Robot.candyCaneArmSameCount >= 5) {
+      System.out.println("Candy Cane hit stop");
       end();
     }
     int current = Robot.m_candyCanes.raiseArm();
