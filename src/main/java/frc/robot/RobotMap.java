@@ -69,8 +69,8 @@ public class RobotMap {
     //climb up level 3
   public static final int LIFTARM_DOWN_COUNT3 = 360;
   public static final int LIFTARM_UP_COUNT3 = 360;
-  public static final int CANDYCANES_DOWN_COUNT3 = 220;
-  public static final int CANDYCANES_UP_COUNT3 = 480;
+  public static final int CANDYCANES_DOWN_COUNT3 = 210;
+  public static final int CANDYCANES_UP_COUNT3 = 430;
   public static final int LIFT_DRIVE_ON_COUNT3 = 400;
   public static final int CANDY_CANE_DRIVE_ON_COUNT3 = 400;
 
