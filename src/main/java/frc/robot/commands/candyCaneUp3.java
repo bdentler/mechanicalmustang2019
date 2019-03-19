@@ -7,46 +7,51 @@
 
 package frc.robot.commands;
 
-//import edu.wpi.first.wpilibj.Relay.Value;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 
-public class vacuumToggle extends Command {
-  public vacuumToggle() {
+public class candyCaneUp3 extends Command {
+
+  boolean countReached = false;
+
+  public candyCaneUp3() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.m_vacuumMotor);
+    requires(Robot.m_candyCanes);
+    countReached = false;
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    Robot.m_candyCanes.resetCount();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if (Robot.m_vacuumMotor.vacState() == true) {    //Value.kOn) {
-      Robot.m_vacuumMotor.stopVacuum();
-    } else {
-      Robot.m_vacuumMotor.startVacuum();
+    if (Robot.m_candyCanes.raiseArm() >= RobotMap.CANDYCANES_UP_COUNT3) {
+      countReached = true;
     }
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return countReached;
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
+    Robot.m_candyCanes.armsStop();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+    end();
   }
 }

@@ -9,7 +9,6 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.RobotMap;
 
 public class candyCaneDriveOn2 extends Command {
 
@@ -31,11 +30,7 @@ public class candyCaneDriveOn2 extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    System.out.println("candycane drive on");
-    System.out.println(Robot.m_candyCaneDriveWheel.getCount());
-    if (Robot.m_candyCaneDriveWheel.driveOn() >= RobotMap.CANDY_CANE_DRIVE_ON_COUNT2) {
-      isCountReached = true;
-    }
+    Robot.m_candyCaneDriveWheel.driveOn();
   }
 
   // Make this return true when this Command no longer needs to run execute()

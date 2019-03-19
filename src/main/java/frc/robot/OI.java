@@ -41,11 +41,11 @@ public class OI {
     //F2.whileHeld(new testLiftArmU());
     //F3.whileHeld(new testLiftArmD());
     F4.whenPressed(new raiseBoom());
-    //F5.whenPressed(new vacuumBegin());
-    F6.whenPressed(new vacuumToggle());
-    F7.whenPressed(new climbUp2());
-    F8.whenPressed(new climbUp3());
-    D1.whenPressed(new dropSuction());
+    F5.whenPressed(new vacuumEnd());
+    F6.whenPressed(new vacuumBegin());
+    F7.whenPressed(new climbUp3());
+    F8.whenPressed(new climbUp2());
+    D1.whenPressed(new dropBall());
     POVUp.whileHeld(new candyCanesUp());
     POVDown.whileHeld(new candyCanesDown());
     POVRight.whileHeld(new liftArmsUp());

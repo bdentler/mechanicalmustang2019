@@ -9,7 +9,6 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.RobotMap;
 
 public class liftDriveOn2 extends Command {
 
@@ -31,9 +30,7 @@ public class liftDriveOn2 extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if (Robot.m_liftDriveWheel.driveOn() >= RobotMap.LIFT_DRIVE_ON_COUNT2) {
-      isCountReached = false;
-    }
+    Robot.m_liftDriveWheel.driveOn();
   }
 
   // Make this return true when this Command no longer needs to run execute()

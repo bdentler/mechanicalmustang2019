@@ -10,45 +10,42 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
-import edu.wpi.first.wpilibj.DigitalInput;
 
-/*
-This command is not needed for the robot and is only left
-in this program as an example of using a proximity switch
-*/
+public class liftArmsUp3 extends Command {
 
-public class stowBoom extends Command {
+  boolean countReached = false;
 
-  DigitalInput ProcSwitch = null;
-
-  public stowBoom() {
+  public liftArmsUp3() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.m_boomMotor);
-    ProcSwitch = new DigitalInput(RobotMap.BOOM_PROX_IO);
+    requires(Robot.m_liftArms);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    Robot.m_liftArms.resetCounter();
+    countReached = false;
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.m_boomMotor.liftBoom();
+    if (Robot.m_liftArms.raiseArm() >= RobotMap.LIFTARM_UP_COUNT3) {
+      countReached = true;
+    }
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return ProcSwitch.get();
+    return countReached;
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.m_boomMotor.stopBoomMotor();
+    Robot.m_liftArms.armsStop();
   }
 
   // Called when another command which requires one or more of the same
