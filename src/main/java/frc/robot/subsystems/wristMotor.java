@@ -13,52 +13,47 @@ import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.Counter;
 import frc.robot.commands.trimWrist;
 
-/**
- * Add your docs here.
- */
-public class actuateWristMotor extends Subsystem {
-  // Put methods for controlling this subsystem
-  // here. Call these from Commands.
+public class wristMotor extends Subsystem {
 
-  Spark actuateWristMotor = null;
+  Spark wristMotor = null;
   Counter wristMotorCounter = null;
 
-  public actuateWristMotor() {
-    actuateWristMotor = new Spark(RobotMap.WRIST_MOTOR_PWM);
+  public wristMotor() {
+    wristMotor = new Spark(RobotMap.WRIST_MOTOR_PWM);
     wristMotorCounter = new Counter();
     wristMotorCounter.setUpSource(RobotMap.WRIST_MOTOR_DIO);
     wristMotorCounter.setUpDownCounterMode();
   }
-  @Override
-  public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
-    setDefaultCommand(new trimWrist());
-  }
 
-  public void resetWristCounter() {
+  public void resetCounter() {
     wristMotorCounter.reset();
   }
 
-  public int getWristCount() {
+  public int getCount() {
     return wristMotorCounter.get();
   }
 
-  public int raiseWrist() {
-    actuateWristMotor.setSpeed(RobotMap.WRIST_MOTOR_UP_SPEED);
+  public int wristUp() {
+    wristMotor.set(RobotMap.WRIST_MOTOR_UP_SPEED);
     return wristMotorCounter.get();
   }
 
-  public int lowerWrist() {
-    actuateWristMotor.setSpeed(RobotMap.WRIST_MOTOR_DOWN_SPEED);
+  public int wristDown() {
+    wristMotor.set(RobotMap.WRIST_MOTOR_DOWN_SPEED);
     return wristMotorCounter.get();
   }
 
-  public void moveWrist(double moveSpeed) {
-    actuateWristMotor.setSpeed(moveSpeed);
+  public int moveWrist(double moveSpeed) {
+    wristMotor.set(moveSpeed);
+    return wristMotorCounter.get();
   }
 
   public void stopMotor() {
-    actuateWristMotor.setSpeed(0);
+    wristMotor.set(0);
+  }
+
+  @Override
+  public void initDefaultCommand() {
+    setDefaultCommand(new trimWrist());
   }
 }

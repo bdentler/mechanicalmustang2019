@@ -11,41 +11,41 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 
-public class stowLiftFront extends Command {
+public class candyCaneUp3 extends Command {
 
-  boolean isCountReached = false;
+  boolean countReached = false;
 
-  public stowLiftFront() {
+  public candyCaneUp3() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.m_liftArms);
+    requires(Robot.m_candyCanes);
+    countReached = false;
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.m_liftArms.resetFrontLiftCounter();
-    isCountReached = false;
+    Robot.m_candyCanes.resetCount();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if (Robot.m_liftArms.lowerRobot() >= RobotMap.FRONT_STOW_COUNTER_COUNT) {
-    isCountReached = true;
+    if (Robot.m_candyCanes.raiseArm() >= RobotMap.CANDYCANES_UP_COUNT3) {
+      countReached = true;
     }
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return isCountReached;
+    return countReached;
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.m_dropArms.armsStop();
+    Robot.m_candyCanes.armsStop();
   }
 
   // Called when another command which requires one or more of the same

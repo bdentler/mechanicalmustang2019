@@ -7,38 +7,37 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.Spark;
-import edu.wpi.first.wpilibj.Counter;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
+import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.Counter;
 
-public class liftArms extends Subsystem {
-  Spark liftArms = null;
-  Counter motorCounter = null;
+public class candyCaneDriveWheel extends Subsystem {
 
-  public liftArms() {
-    liftArms = new Spark(RobotMap.LIFT_ARMS_PWM);
-    motorCounter = new Counter();
-    motorCounter.setUpSource(RobotMap.LIFT_ARMS_DIO);
+  Talon candyCaneDrive = new Talon(RobotMap.CANDY_CANE_DRIVE_WHEEL_PWM);
+  Counter motorCounter = new Counter();
+
+  public candyCaneDriveWheel() {
+    motorCounter.setUpSource(RobotMap.CANDY_CANE_DRIVE_DIO);
     motorCounter.setUpDownCounterMode();
   }
 
   public void resetCounter() {
     motorCounter.reset();
   }
-  
-  public int lowerArm() {
-    liftArms.set(RobotMap.LIFT_ARM_DOWN_SPEED);
+
+  public int driveOn() {
+    candyCaneDrive.set(RobotMap.CANDY_CANE_DRIVE_ON_SPEED);
     return motorCounter.get();
   }
 
-  public int raiseArm() {
-    liftArms.set(RobotMap.LIFT_ARM_UP_SPEED);
+  public int driveOff() {
+    candyCaneDrive.set(RobotMap.CANDY_CANE_DRIVE_OFF_SPEED);
     return motorCounter.get();
   }
 
-  public void armsStop() {
-    liftArms.set(0);
+  public void stopMotor() {
+    candyCaneDrive.set(0);
   }
 
   public int getCount() {
@@ -47,5 +46,7 @@ public class liftArms extends Subsystem {
 
   @Override
   public void initDefaultCommand() {
+    // Set the default command for a subsystem here.
+    // setDefaultCommand(new MySpecialCommand());
   }
 }

@@ -11,61 +11,47 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 
-public class lowerBoom extends Command {
-  
-  int targetBoomPosition = 0;
-  int targetCounts = 0;
-  boolean countReached = false;
+public class liftRobotFront2 extends Command {
 
-  public lowerBoom() {
+  boolean isCountReached = false;
+
+  public liftRobotFront2() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.m_boomMotor);
+    requires(Robot.m_liftArms);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    if (Robot.boomLocked) {
-      interrupted();
-    } else {
-      Robot.boomLocked = true;
-    }
-    targetBoomPosition = Robot.currentBoomPosition - 1;
-    if (targetBoomPosition < 0) {
-      interrupted();
-    } else {
-      Robot.m_boomMotor.resetCounter();
-      countReached = false;
-      targetCounts = RobotMap.boomPositionCount[Robot.currentBoomPosition] - RobotMap.boomPositionCount[targetBoomPosition];
-    }
+    Robot.m_liftArms.resetCounter();
+    isCountReached = false;
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if (Robot.m_boomMotor.dropBoom() >= targetCounts) {
-      countReached = true;
+    if (Robot.m_liftArms.lowerArm() >= RobotMap.LIFTARM_DOWN_COUNT2) {
+      isCountReached = true;
     }
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return countReached;
+    return isCountReached;
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.m_boomMotor.stopBoomMotor();
-    Robot.currentBoomPosition = targetBoomPosition;
-    Robot.boomLocked = false;
+    Robot.m_liftArms.armsStop();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+    end();
   }
 }

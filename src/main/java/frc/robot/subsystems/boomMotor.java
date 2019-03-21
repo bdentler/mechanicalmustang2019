@@ -13,12 +13,7 @@ import edu.wpi.first.wpilibj.Counter;
 import frc.robot.RobotMap;
 import frc.robot.commands.trimBoom;
 
-/**
- * Add your docs here.
- */
 public class boomMotor extends Subsystem {
-  // Put methods for controlling this subsystem
-  // here. Call these from Commands.
 
   Spark boomMotor = null;
   Counter boomCounter = null;
@@ -30,36 +25,34 @@ public class boomMotor extends Subsystem {
     boomCounter.setUpDownCounterMode();
   }
 
-  public void resetBoomCounter() {
+  public void resetCounter() {
     boomCounter.reset();
   }
 
-  public int getBoomCount() {
+  public int getCount() {
     return boomCounter.get();
   }
 
   public int liftBoom() {
-    boomMotor.setSpeed(RobotMap.BOOM_MOTOR_RAISE_SPEED);
+    boomMotor.set(RobotMap.BOOM_MOTOR_RAISE_SPEED);
     return boomCounter.get();
   }
 
   public int dropBoom() {
-    boomMotor.setSpeed(RobotMap.BOOM_MOTOR_LOWER_SPEED);
+    boomMotor.set(RobotMap.BOOM_MOTOR_LOWER_SPEED);
     return boomCounter.get();
   }
 
   public void moveBoom(double boomMoveSpeed) {
-    boomMotor.setSpeed(boomMoveSpeed);
+    boomMotor.set(boomMoveSpeed);
   }
 
   public void stopBoomMotor() {
-    boomMotor.setSpeed(0);
+    boomMotor.set(0);
   }
 
   @Override
   public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
     setDefaultCommand(new trimBoom());
   }
 }

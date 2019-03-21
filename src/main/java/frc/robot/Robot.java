@@ -15,14 +15,14 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.cameraserver.CameraServer;
 import frc.robot.subsystems.driveTrain;
 import frc.robot.subsystems.boomMotor;
-import frc.robot.subsystems.dropArms;
+import frc.robot.subsystems.candyCanes;
 import frc.robot.subsystems.liftArms;
 import frc.robot.subsystems.liftDriveWheel;
 import frc.robot.subsystems.vacuumMotor;
 import frc.robot.subsystems.vacuumDumpValve;
-import frc.robot.subsystems.actuateWristMotor;
+import frc.robot.subsystems.wristMotor;
+import frc.robot.subsystems.candyCaneDriveWheel;
 import frc.robot.commands.climbDown;
-
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -33,13 +33,18 @@ import frc.robot.commands.climbDown;
  */
 public class Robot extends TimedRobot {
   public static driveTrain m_driveTrain = null;
-  public static dropArms m_dropArms = null;
+  public static candyCanes m_candyCanes = null;
   public static liftArms m_liftArms = null;
   public static liftDriveWheel m_liftDriveWheel = null;
-  public static actuateWristMotor m_actuateWristMotor = null;
+  public static candyCaneDriveWheel m_candyCaneDriveWheel = null;
+  public static wristMotor m_wristMotor = null;
   public static vacuumMotor m_vacuumMotor = null;
   public static boomMotor m_boomMotor = null;
   public static vacuumDumpValve m_vacuumDumpValve = null;
+  public static int liftArmLastCount = 0;
+  public static int liftArmSameCount = 0;
+  public static int candyCaneArmLastCount = 0;
+  public static int candyCaneArmSameCount = 0;
   public static int currentBoomPosition = 0;
   public static boolean boomLocked = false;
   public static OI m_oi;
@@ -55,13 +60,14 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     CameraServer.getInstance().startAutomaticCapture();
     m_driveTrain = new driveTrain();
-    m_dropArms = new dropArms();
+    m_candyCanes = new candyCanes();
     m_liftArms = new liftArms();
     m_liftDriveWheel = new liftDriveWheel();
+    m_candyCaneDriveWheel = new candyCaneDriveWheel();
     m_vacuumMotor = new vacuumMotor();
     m_vacuumDumpValve = new vacuumDumpValve();
     m_boomMotor = new boomMotor();
-    m_actuateWristMotor = new actuateWristMotor();
+    m_wristMotor = new wristMotor();
     m_oi = new OI();
     
     // set the default autonomous option to lowerRobot

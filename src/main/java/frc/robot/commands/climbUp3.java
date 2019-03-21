@@ -9,11 +9,20 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
-public class liftRobot extends CommandGroup {
+public class climbUp3 extends CommandGroup {
   /**
    * Add your docs here.
    */
-  public liftRobot() {
+  public climbUp3() {
+    addSequential(new liftRobotRear3());
+    addParallel(new liftRobotRear3());
+    addParallel(new candyCaneDriveOn3());
+    addSequential(new liftRobotFront3());
+    addParallel(new candyCaneDriveOn3(), 10);
+    addSequential(new liftDriveOn3(), 10);
+    addParallel(new candyCaneUp3());
+    addParallel(new liftArmsUp3());
+ 
     // Add Commands here:
     // e.g. addSequential(new Command1());
     // addSequential(new Command2());
@@ -24,9 +33,6 @@ public class liftRobot extends CommandGroup {
     // e.g. addParallel(new Command1());
     // addSequential(new Command2());
     // Command1 and Command2 will run in parallel.
-
-    addParallel(new liftRobotFront());
-    addParallel(new liftRobotRear());
 
     // A command group will require all of the subsystems that each member
     // would require.

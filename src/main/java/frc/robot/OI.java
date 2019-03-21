@@ -31,27 +31,25 @@ public class OI {
   Button F7 = new JoystickButton(functionController, 7);
   Button F8 = new JoystickButton(functionController, 8);
   Button D1 = new JoystickButton(driveController, 1);
-  POVButton povUp = new POVButton(functionController, 0);
-  POVButton povDown = new POVButton(functionController, 180);
-  POVButton povRight = new POVButton(functionController, 90);
-  POVButton povLeft = new POVButton(functionController, 270);
-
+  POVButton POVUp = new POVButton(functionController, 0);
+  POVButton POVRight = new POVButton(functionController, 90);
+  POVButton POVDown = new POVButton(functionController, 180);
+  POVButton POVLeft = new POVButton(functionController, 270);
 
   public OI() {
     F1.whenPressed(new lowerBoom());
     //F2.whileHeld(new testLiftArmU());
-   // F3.whileHeld(new testLiftArmD());
+    //F3.whileHeld(new testLiftArmD());
     F4.whenPressed(new raiseBoom());
+    F5.whenPressed(new vacuumEnd());
     F6.whenPressed(new vacuumBegin());
-    F5.whileHeld(new liftDriveOn());
-   
-    F7.whenPressed(new climbUp());
-    F8.whenPressed(new climbDown());
-    D1.whenPressed(new dropSuction());
-    povUp.whileHeld(new testCandyCaneD());
-    povDown.whileHeld(new testCandyCaneU());
-    povRight.whileHeld(new testLiftArmD());
-    povLeft.whileHeld(new testLiftArmU());
+    F7.whenPressed(new climbUp3());
+    F8.whenPressed(new climbUp2());
+    D1.whenPressed(new dropBall());
+    POVUp.whileHeld(new candyCanesUp());
+    POVDown.whileHeld(new candyCanesDown());
+    POVRight.whileHeld(new liftArmsUp());
+    POVLeft.whileHeld(new liftArmsDown());
   }
 
   //// CREATING BUTTONS

@@ -11,27 +11,27 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 
-public class stowWrist extends Command {
-  
+public class liftRobotRear2 extends Command {
+
   boolean isCountReached = false;
-  
-  public stowWrist() {
+
+  public liftRobotRear2() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.m_actuateWristMotor);
+    requires(Robot.m_candyCanes);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    Robot.m_candyCanes.resetCount();
     isCountReached = false;
-    Robot.m_actuateWristMotor.resetWristCounter();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if (Robot.m_actuateWristMotor.raiseWrist() >= RobotMap.WRIST_DEPLOY_COUNT) {
+    if (Robot.m_candyCanes.lowerArm() >= RobotMap.CANDYCANES_DOWN_COUNT2) {
       isCountReached = true;
     }
   }
@@ -45,7 +45,7 @@ public class stowWrist extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.m_actuateWristMotor.stopMotor();
+    Robot.m_candyCanes.armsStop();
   }
 
   // Called when another command which requires one or more of the same
