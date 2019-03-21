@@ -8,41 +8,42 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Spark;
-import edu.wpi.first.wpilibj.Counter;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
+import edu.wpi.first.wpilibj.Counter;
 
-public class liftArms extends Subsystem {
-  Spark liftArms = null;
-  Counter motorCounter = null;
+public class candyCanes extends Subsystem {
 
-  public liftArms() {
-    liftArms = new Spark(RobotMap.LIFT_ARMS_PWM);
-    motorCounter = new Counter();
-    motorCounter.setUpSource(RobotMap.LIFT_ARMS_DIO);
-    motorCounter.setUpDownCounterMode();
+  Spark candyCanes = null;
+  Counter candyCanesCount = null;
+
+  public candyCanes() {
+    candyCanes = new Spark(RobotMap.CANDY_CANE_PWM);
+    candyCanesCount = new Counter();
+    candyCanesCount.setUpSource(RobotMap.CANDY_CANE_DIO);
+    candyCanesCount.setUpDownCounterMode();
   }
 
-  public void resetCounter() {
-    motorCounter.reset();
+  public void resetCount() {
+    candyCanesCount.reset();
   }
-  
+
   public int lowerArm() {
-    liftArms.set(RobotMap.LIFT_ARM_DOWN_SPEED);
-    return motorCounter.get();
+    candyCanes.set(RobotMap.CANDY_CANE_DOWN_SPEED);
+    return candyCanesCount.get();
   }
 
   public int raiseArm() {
-    liftArms.set(RobotMap.LIFT_ARM_UP_SPEED);
-    return motorCounter.get();
+    candyCanes.set(RobotMap.CANDY_CANE_UP_SPEED);
+    return candyCanesCount.get();
   }
 
   public void armsStop() {
-    liftArms.set(0);
+    candyCanes.set(0);
   }
 
   public int getCount() {
-    return motorCounter.get();
+    return candyCanesCount.get();
   }
 
   @Override

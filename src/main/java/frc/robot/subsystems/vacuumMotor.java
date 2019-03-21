@@ -8,36 +8,49 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.robot.RobotMap;
+//import edu.wpi.first.wpilibj.Relay;
+//import edu.wpi.first.wpilibj.Relay.Direction;
+//import edu.wpi.first.wpilibj.Relay.Value;
 import edu.wpi.first.wpilibj.Talon;
+import frc.robot.RobotMap;
 
-/**
- * Add your docs here.
- */
 public class vacuumMotor extends Subsystem {
-  // Put methods for controlling this subsystem
-  // here. Call these from Commands.
 
-  Talon vacMotor = null;
+  //Relay vacMotor = new Relay(RobotMap.VACUUM_RELAY_PORT, Direction.kForward);
+  Talon vacMotor = new Talon(RobotMap.VACUUM_MOTOR_PWM);
 
   public vacuumMotor() {
-    vacMotor =  new Talon(RobotMap.VACUUM_MOTOR_PWM);
+    //vacMotor.set(Relay.Value.kOff);
   }
 
   public void startVacuum() {
+    //vacMotor.set(Relay.Value.kOn);
     double currentSpeed = vacMotor.getSpeed();
-    if (currentSpeed < RobotMap.VACUUM_MOTOR_MAX_SPEED) {
-      vacMotor.setSpeed(currentSpeed + RobotMap.VACUUM_MOTOR_SPEED_ADJUST);
+    if (currentSpeed <= RobotMap.VACUUM_MAX_SPEED) {
+      vacMotor.setSpeed(currentSpeed + RobotMap.VACUUM_RAMP);
+    } else {
+      vacMotor.setSpeed(RobotMap.VACUUM_MAX_SPEED);
+    }
+  }
+/*
+  public Value vacState() {
+    return vacMotor.get();
+  }
+*/
+  public boolean vacState() {
+    if (vacMotor.getSpeed() > 0) {
+      return true;
+    } else {
+      return false;
     }
   }
 
   public void stopVacuum() {
+    //vacMotor.set(Relay.Value.kOff);
     vacMotor.setSpeed(0);
   }
 
   @Override
   public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
   }
 }

@@ -15,19 +15,20 @@ public class trimWrist extends Command {
   public trimWrist() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.m_actuateWristMotor);
+    requires(Robot.m_wristMotor);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    Robot.m_wristMotor.resetCounter();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
     double moveSpeed = -Robot.m_oi.functionController.getRawAxis(1);
-    Robot.m_actuateWristMotor.moveWrist(moveSpeed);
+    Robot.m_wristMotor.moveWrist(moveSpeed);
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -39,7 +40,7 @@ public class trimWrist extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.m_actuateWristMotor.stopMotor();
+    Robot.m_wristMotor.stopMotor();
   }
 
   // Called when another command which requires one or more of the same

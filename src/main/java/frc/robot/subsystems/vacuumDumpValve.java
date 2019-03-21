@@ -16,8 +16,7 @@ import frc.robot.RobotMap;
  * Add your docs here.
  */
 public class vacuumDumpValve extends Subsystem {
-  // Put methods for controlling this subsystem
-  // here. Call these from Commands.
+
   Relay vacuumDump = new Relay(RobotMap.VACUUM_DUMP_RELAY_PORT, Direction.kForward);
 
   public vacuumDumpValve() {

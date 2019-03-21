@@ -18,20 +18,20 @@ public class lowerRobotRear extends Command {
   public lowerRobotRear() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.m_dropArms);
+    requires(Robot.m_candyCanes);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.m_dropArms.resetRearClimbingArmCount();
+    Robot.m_candyCanes.resetCount();
     isCountReached = false;
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if (Robot.m_dropArms.lowerRobot() >= RobotMap.CLIMBING_ARMS_REAR_COUNT) {
+    if (Robot.m_candyCanes.raiseArm() >= RobotMap.CANDYCANES_UP_COUNT) {
       isCountReached = true;
     } 
   }
@@ -45,7 +45,7 @@ public class lowerRobotRear extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.m_dropArms.armsStop();
+    Robot.m_candyCanes.armsStop();
   }
 
   // Called when another command which requires one or more of the same

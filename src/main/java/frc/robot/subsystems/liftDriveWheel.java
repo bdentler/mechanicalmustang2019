@@ -44,9 +44,11 @@ public class liftDriveWheel extends Subsystem {
     liftDriveWheel.set(0);
   }
 
+  public int getCount() {
+    return liftDriveWheelCount.get();
+  }
+
   @Override
   public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
   }
 }
