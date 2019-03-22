@@ -9,8 +9,12 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 
 public class candyCanesUp extends Command {
+
+  boolean countReached = false;
+
   public candyCanesUp() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
@@ -22,6 +26,7 @@ public class candyCanesUp extends Command {
   protected void initialize() {
     Robot.m_candyCanes.resetCount();
     Robot.candyCaneArmSameCount = 0;
+    countReached = false;
   }
 
   // Called repeatedly when this Command is scheduled to run
@@ -37,12 +42,15 @@ public class candyCanesUp extends Command {
     } else {
       Robot.candyCaneArmLastCount = current;
     }
+    if (current == RobotMap.CANDYCANES_UP_COUNT) {
+      countReached = true;
+    }
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return countReached;
   }
 
   // Called once after isFinished returns true

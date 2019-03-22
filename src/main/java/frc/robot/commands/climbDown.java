@@ -14,13 +14,13 @@ public class climbDown extends CommandGroup {
    * Add your docs here.
    */
   public climbDown() {
-    addParallel(new liftRobotRear2());
-    addSequential(new liftRobotFront2());
-    addSequential(new driveOffUpperHabitat());
+    addParallel(new liftRobotRear());
+    addSequential(new liftRobotFront());
+    addParallel(new driveOffUpperHabitat());
     addParallel(new candyCaneDriveOff());
     addSequential(new liftDriveOff());
-    addParallel(new liftArmsUp2());
-    addParallel(new candyCaneUp2());
+    addParallel(new liftArmsUp());
+    addParallel(new candyCanesUp());
     addParallel(new driveOffHabitat());
     addSequential(new deployRobot());
 

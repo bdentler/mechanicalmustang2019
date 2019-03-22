@@ -14,12 +14,10 @@ public class climbUp2 extends CommandGroup {
    * Add your docs here.
    */
   public climbUp2() {
-    addSequential(new liftRobotRear2());
     addParallel(new liftRobotRear2());
-    addParallel(new candyCaneDriveOn2());
     addSequential(new liftRobotFront2());
-    addParallel(new candyCaneDriveOn2(), 10);
-    addSequential(new liftDriveOn2(), 10);
+    addParallel(new candyCaneDriveOn2(), 8);
+    addSequential(new liftDriveOn2(), 8);
     addParallel(new candyCaneUp2());
     addParallel(new liftArmsUp2());
 
