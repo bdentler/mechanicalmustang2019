@@ -41,8 +41,8 @@ public class RobotMap {
   public static final double LIFT_DRIVE_WHEEL_OFF_SPEED = 0.6;
   public static final double CANDY_CANE_DRIVE_ON_SPEED = 0.8;
   public static final double CANDY_CANE_DRIVE_OFF_SPEED = -0.6;
-  public static final double BOOM_MOTOR_RAISE_SPEED = -0.7;
-  public static final double BOOM_MOTOR_LOWER_SPEED = 0.7;
+  public static final double BOOM_MOTOR_RAISE_SPEED = 0.7;
+  public static final double BOOM_MOTOR_LOWER_SPEED = -0.7;
   public static final double WRIST_MOTOR_UP_SPEED = 0.7;
   public static final double WRIST_MOTOR_DOWN_SPEED = -0.5;
   public static final double VACUUM_MAX_SPEED = 0.8;
@@ -58,16 +58,16 @@ public class RobotMap {
   public static final int CANDY_CANE_DRIVE_OFF_COUNT = 80;
 
     //climb up level 2
-  public static final int LIFTARM_DOWN_COUNT2 = 360;
-  public static final int LIFTARM_UP_COUNT2 = 360;
-  public static final int CANDYCANES_DOWN_COUNT2 = 140;
+  public static final int LIFTARM_DOWN_COUNT2 = 250;
+  public static final int LIFTARM_UP_COUNT2 = 250;
+  public static final int CANDYCANES_DOWN_COUNT2 = 280;
   public static final int CANDYCANES_UP_COUNT2 = 280;
   //public static final int LIFT_DRIVE_ON_COUNT2 = 400;
   //public static final int CANDY_CANE_DRIVE_ON_COUNT2 = 400;
 
     //climb up level 3
-  public static final int LIFTARM_DOWN_COUNT3 = 360;
-  public static final int LIFTARM_UP_COUNT3 = 360;
+  public static final int LIFTARM_DOWN_COUNT3 = 340;
+  public static final int LIFTARM_UP_COUNT3 = 340;
   public static final int CANDYCANES_DOWN_COUNT3 = 190;
   public static final int CANDYCANES_UP_COUNT3 = 380;
   //public static final int LIFT_DRIVE_ON_COUNT3 = 400;

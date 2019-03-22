@@ -15,8 +15,7 @@ public class dropBall extends CommandGroup {
    */
   public dropBall() {
     addParallel(new dropSuction());
-    addSequential(new vacuumEnd(), 2);
-    addParallel(new vacuumBegin());
+    addSequential(new vacuumEnd());
     // Add Commands here:
     // e.g. addSequential(new Command1());
     // addSequential(new Command2());
