@@ -23,8 +23,8 @@ public class OI {
   public Joystick functionController = new Joystick(RobotMap.OI_FUNCTION_JOYSTICK);
 
   Button F1 = new JoystickButton(functionController, 1);
-  Button F2 = new JoystickButton(functionController, 2);
-  Button F3 = new JoystickButton(functionController, 3);
+  //Button F2 = new JoystickButton(functionController, 2);
+  //Button F3 = new JoystickButton(functionController, 3);
   Button F4 = new JoystickButton(functionController, 4);
   Button F5 = new JoystickButton(functionController, 5);
   Button F6 = new JoystickButton(functionController, 6);

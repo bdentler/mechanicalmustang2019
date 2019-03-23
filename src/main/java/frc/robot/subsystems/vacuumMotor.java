@@ -23,6 +23,10 @@ public class vacuumMotor extends Subsystem {
     //vacMotor.set(Relay.Value.kOff);
   }
 
+  public double vacuumState() {
+    return vacMotor.getSpeed();
+  }
+
   public void startVacuum() {
     //vacMotor.set(Relay.Value.kOn);
     double currentSpeed = vacMotor.getSpeed();

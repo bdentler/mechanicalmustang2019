@@ -12,7 +12,7 @@ import frc.robot.Robot;
 
 public class liftDriveOn3 extends Command {
 
-  boolean isCountReached = false;
+  //boolean isCountReached = false;
 
   public liftDriveOn3() {
     // Use requires() here to declare subsystem dependencies
@@ -24,7 +24,7 @@ public class liftDriveOn3 extends Command {
   @Override
   protected void initialize() {
     Robot.m_liftDriveWheel.resetLiftDriveCounter();
-    isCountReached = false;
+    //isCountReached = false;
   }
 
   // Called repeatedly when this Command is scheduled to run
@@ -36,7 +36,7 @@ public class liftDriveOn3 extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return isCountReached;
+    return false;
   }
 
   // Called once after isFinished returns true
