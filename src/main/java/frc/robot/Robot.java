@@ -19,7 +19,6 @@ import frc.robot.subsystems.candyCanes;
 import frc.robot.subsystems.liftArms;
 import frc.robot.subsystems.liftDriveWheel;
 import frc.robot.subsystems.vacuumMotor;
-import frc.robot.subsystems.vacuumDumpValve;
 import frc.robot.subsystems.wristMotor;
 import frc.robot.subsystems.candyCaneDriveWheel;
 import frc.robot.commands.climbDown;
@@ -40,7 +39,6 @@ public class Robot extends TimedRobot {
   public static wristMotor m_wristMotor = null;
   public static vacuumMotor m_vacuumMotor = null;
   public static boomMotor m_boomMotor = null;
-  public static vacuumDumpValve m_vacuumDumpValve = null;
   public static int liftArmLastCount = 0;
   public static int liftArmSameCount = 0;
   public static int candyCaneArmLastCount = 0;
@@ -65,7 +63,6 @@ public class Robot extends TimedRobot {
     m_liftDriveWheel = new liftDriveWheel();
     m_candyCaneDriveWheel = new candyCaneDriveWheel();
     m_vacuumMotor = new vacuumMotor();
-    m_vacuumDumpValve = new vacuumDumpValve();
     m_boomMotor = new boomMotor();
     m_wristMotor = new wristMotor();
     m_oi = new OI();

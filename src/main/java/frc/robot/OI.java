@@ -23,7 +23,7 @@ public class OI {
   public Joystick functionController = new Joystick(RobotMap.OI_FUNCTION_JOYSTICK);
 
   Button F1 = new JoystickButton(functionController, 1);
-  //Button F2 = new JoystickButton(functionController, 2);
+  Button F2 = new JoystickButton(functionController, 2);
   //Button F3 = new JoystickButton(functionController, 3);
   Button F4 = new JoystickButton(functionController, 4);
   Button F5 = new JoystickButton(functionController, 5);
@@ -38,14 +38,14 @@ public class OI {
 
   public OI() {
     F1.whenPressed(new lowerBoom());
-    //F2.whileHeld(new testLiftArmU());
+    F2.whileHeld(new allDrivesOn());
     //F3.whileHeld(new testLiftArmD());
     F4.whenPressed(new raiseBoom());
     F5.whenPressed(new vacuumEnd());
     F6.whenPressed(new vacuumBegin());
     F7.whenPressed(new climbUp3());
     F8.whenPressed(new climbUp2());
-    D1.whenPressed(new dropBall());
+    D1.whenPressed(new vacuumEnd());
     POVUp.whileHeld(new candyCanesUp());
     POVDown.whileHeld(new candyCanesDown());
     POVRight.whileHeld(new liftArmsUp());

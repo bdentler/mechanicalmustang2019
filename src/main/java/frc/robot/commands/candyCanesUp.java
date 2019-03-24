@@ -25,14 +25,14 @@ public class candyCanesUp extends Command {
   @Override
   protected void initialize() {
     Robot.m_candyCanes.resetCount();
-    Robot.candyCaneArmSameCount = 0;
+    //Robot.candyCaneArmSameCount = 0;
     countReached = false;
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if (Robot.candyCaneArmSameCount >= 5) {
+    /*if (Robot.candyCaneArmSameCount >= 5) {
       System.out.println("Candy Cane hit stop");
       end();
     }
@@ -41,8 +41,8 @@ public class candyCanesUp extends Command {
       Robot.candyCaneArmSameCount += 1;
     } else {
       Robot.candyCaneArmLastCount = current;
-    }
-    if (current == RobotMap.CANDYCANES_UP_COUNT) {
+    } */
+    if (Robot.m_candyCanes.raiseArm() == RobotMap.CANDYCANES_UP_COUNT) {
       countReached = true;
     }
   }

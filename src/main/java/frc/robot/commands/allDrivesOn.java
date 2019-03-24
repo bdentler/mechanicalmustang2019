@@ -9,37 +9,39 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.RobotMap;
 
-public class dropSuction extends Command {
-  public dropSuction() {
+public class allDrivesOn extends Command {
+  public allDrivesOn() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.m_vacuumDumpValve);
-    setTimeout(RobotMap.VACUUM_DUMP_TIMEOUT);
+    requires(Robot.m_liftDriveWheel);
+    requires(Robot.m_candyCaneDriveWheel);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.m_vacuumDumpValve.releaseSuction();
+    Robot.m_candyCaneDriveWheel.driveOn();
+    Robot.m_liftDriveWheel.driveOn();
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return isTimedOut();
+    return false;
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.m_vacuumDumpValve.makeSuction();
+    Robot.m_candyCaneDriveWheel.stopMotor();
+    Robot.m_liftDriveWheel.driveStop();
   }
 
   // Called when another command which requires one or more of the same

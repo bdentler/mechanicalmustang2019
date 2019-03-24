@@ -25,14 +25,14 @@ public class liftArmsUp extends Command {
   @Override
   protected void initialize() {
     Robot.m_liftArms.resetCounter();
-    Robot.liftArmSameCount = 0;
+    //Robot.liftArmSameCount = 0;
     countReached = false;
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if (Robot.liftArmSameCount >= 5) {
+    /*if (Robot.liftArmSameCount >= 5) {
       System.out.println("Lift arms hit stop");
       end();
     }
@@ -41,8 +41,8 @@ public class liftArmsUp extends Command {
       Robot.liftArmSameCount += 1;
     } else {
       Robot.liftArmLastCount = current;
-    }
-    if (current >= RobotMap.LIFTARM_UP_COUNT) {
+    } */
+    if (Robot.m_liftArms.raiseArm() >= RobotMap.LIFTARM_UP_COUNT) {
       countReached = true;
     }
   }

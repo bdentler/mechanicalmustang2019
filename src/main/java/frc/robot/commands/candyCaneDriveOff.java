@@ -31,8 +31,6 @@ public class candyCaneDriveOff extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    System.out.println("candycane drive off");
-    System.out.println(Robot.m_candyCaneDriveWheel.getCount());
     if (Robot.m_candyCaneDriveWheel.driveOff() >= RobotMap.CANDYCANES_DOWN_COUNT) {
       isCountReached = true;
     }

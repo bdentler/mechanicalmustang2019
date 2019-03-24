@@ -16,9 +16,9 @@ public class climbUp2 extends CommandGroup {
   public climbUp2() {
     addParallel(new liftRobotRear2());
     addSequential(new liftRobotFront2());
-    addParallel(new candyCaneDriveOn2(), 8);
-    addSequential(new liftDriveOn2(), 8);
-    addParallel(new candyCaneUp2());
+    addParallel(new candyCaneDriveOn2(), 6);
+    addSequential(new liftDriveOn2(), 6);
+    //addParallel(new candyCaneUp2());
     addParallel(new liftArmsUp2());
 
 
